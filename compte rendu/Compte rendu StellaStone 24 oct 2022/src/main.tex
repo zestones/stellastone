@@ -1,0 +1,142 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{lmodern}
+\usepackage{moreverb}
+\usepackage{multicol}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+    }
+
+\urlstyle{same}
+\usepackage[a4paper,left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+
+\pagestyle{headings}
+\pagestyle{plain}
+
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+\makeatletter
+
+
+\makeatother
+
+
+
+\makeatletter
+\def\toclevel@subsubsubsection{4}
+\def\toclevel@paragraph{5}
+\def\toclevel@subparagraph{6}
+\makeatother
+
+
+
+
+
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+\newcommand{\hsp}{\hspace{20pt}}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+\begin{document}
+
+\begin{titlepage}
+  \begin{sffamily}
+  \begin{center}
+
+   
+    \textsc{\LARGE }\\[2cm]
+
+    \textsc{\Large Compte rendu de Réunion}\\[1.5cm]
+    \textsc{\Medium Rédigé par Benguezzou Idriss}
+
+    % Title
+    \HRule \\[0.4cm]
+    { \huge  \textsc{StellaStone} \\
+    \textsc{\Large By Novus}\\ [0.4cm] }
+	
+
+    \HRule \\[2cm]
+    \textsc {Idriss BENGUEZZOU\\Mohammed ROUABAH\\Ghilas MEZIANE \\ Ilyes ZEGHDALLOU}
+ \begin{figure}
+     \centering
+    \includegraphics[scale=0.2]{logoUJM.png}
+     \label{fig:ujm_logo}
+ \end{figure}
+   
+    \
+
+    \vfill
+
+    % Bottom of the page
+    {\large {} 21/10/2022}
+
+  \end{center}
+  \end{sffamily}
+\end{titlepage}
+
+\newpage
+
+\section{Réunion du Vendredi 21/10}
+La réunion de cette semaine s'est déroulée le vendredi 21 octobre 2022, en présentiel, à la bibliothèque universitaire dans une salle réservée à l'avance sur la plateforme Affluences. Celle-ci a vu la présence de tous les membres: Idriss BENGUEZZOU-Mohammed ROUABAH-Ghilas MEZIANE- Ilyes ZEGHDALLOU, sur le créneau horaire 13h-14h \\
+
+\textbf{Ordre du jour :}
+ \begin{itemize}
+     \item Relecture des nouvelles exigences rédigées par chacun. 
+     \item Observation de l'avancement du document tests de recette.
+ \end{itemize}
+
+
+\section{Un tour de table}
+
+Une première prise de parole nous a permis de remarquer que tous les membres se sont servis du schéma réalisé lors de la dernière réunion datant du 14/10/2022 pendant la rédaction des nouvelles exigences.
+
+À tour de rôle, chaque membre a repris ses exigences, rédigées durant la semaine, pour les présenter aux autres membres du groupe.
+\\
+
+En premier, Mr.ZEGHDALLOU Ilyes, en charge de la rédaction des exigences concernant la page d'authentification, a détaillé les points qu'il a réalisé, néanmoins il a tenu à préciser que les exigences concernant la sécurité de la connexion n'ont pas encore été rédigées. Une Issue sur TRELLO a donc été rajoutée en conséquence. \\
+
+
+Mr.MEZIANE Ghilas a présenté ses exigences sur la partie construction de la fusée. Les composants de la fusée pourront être choisis parmi tous ceux que l'on proposera. Mr.BENGUEZZOU Idriss, a proposé l'idée de donner la possibilité à l'utilisateur de "customiser" les propriétés des différentes pièces de la fusée permettant ainsi de simuler des voyages spatiaux à l'aide de technologies inexistantes. L'interface deviendrait alors une interface de construction et de paramétrage de la fusée. \\ \\ Cependant, Mr.ROUABAH a soulevé le fait que l'ajout de paramétrage des pièces (puissance, force de poussée, masse...) rendrait impossible la connaissance des coûts. \\
+Mr.ZEGHDALLOU, a alors proposé que la comptabilité ne soit pas prise en compte pour ce genre de pièces personnalisées et que seul un rapport partiel du coût du voyage soit généré, tel que le coût du carburant par exemple. 
+\\
+
+Au tour de Mr.ROUABAH Mohammed de présenter les exigences concernant l'interface comptabilité de l'application. Comme énoncé, lors de la réunion du 14/10/2020, par Mr.MEZIANE Ghilas, les informations des prix de composants précis ne sont pas publiques. \\ C'est pourquoi, Mr.ROUABAH a proposé de rendre accessible, sur l'application dans un premier temps uniquement les prix des pièces principales d'une fusée (par exemple son moteur). Ainsi, la fusée pourra être construite uniquement avec les composants que l'on aura prédéfini et dont on connaît le coût. \\ Mr.ROUABAH à également évoqué, la possibilité d'ajout de pièces par l'utilisateur, ainsi celui-ci pourrait lui même entrer le prix du composant qu'il souhaite ajouter.
+ \\
+ 
+
+Quant à Mr.BENGUEZZOU, il s'est chargé de l'interface "voyage spatial" et a présenté les premières exigences qu'il a pu rédiger. Il a commencé à travailler sur la première partie de cette interface qui consiste en une carte interactive permettant de choisir l'itinéraire de la fusée. Il a aussi attiré l'attention du groupe sur le fait que cette interface pourrait indiquer à l'utilisateur si un voyage spatial est possible et envisageable avec la fusée qu'il vient de construire. Ainsi, on pourrait faire savoir à l'utilisateur combien de temps prendrait un tel voyage, et les améliorations possibles sur l'engin.
+
+
+\section{Organisation}
+Nous avons également discuté lors de cette réunion de la difficulté d'organiser notre avancement sur le projet, vu que nous avons en parallèle de celui-ci, trois autres projets. Il nous est donc nécessaire de mettre en place un planning général, pour nous permettre d'avancer et d'être rigoureux sur tous nos projets.
+
+Le temps est donc précieux et nous devons profiter de chaque occasion pour avancer sur la rédaction de nos documents.
+
+Nous nous sommes référé à notre diagramme de Gantt et nous avons, en conséquence, programmé un appel DISCORD pour le mardi 25/10/2022 à 19h30 (Nous avions fixé cette date pour une réunion exceptionnelle lors de notre toute première réunion datant du 03/10/2022) afin de commencer à travailler sur le document de tests de recette. Nous avons choisi comme outil collaboratif pour ce document : Microsoft Excel en ligne. 
+
+
+\section{Mise à jour du tableau TRELLO} 
+En fin de réunion, afin de clôturer la discussion, nous avons mis à jour notre tableau TRELLO en ajoutant de nouvelles issues.
+
+\section{Prochaine réunion et objectifs de la semaine}
+La prochaine réunion est fixée pour le vendredi 28 octobre 2022, sur le créneau horaire 17h-18h avec pour ordre du jour: Révision du document de spécification des exigences et du document de tests de recette.
+
+
+Chaque membre a pour objectif cette semaine de rédiger au minimum 8 exigences sur sa partie respective.
+Le document de tests de recette sera rédigé lors d'un appel commun prévu le 25/10 comme énoncé plus haut et devra être complété par chacun tout au long de la semaine en fonction des nouvelles exigences qui seront ajoutées par chaque membre.
+
+Nous avons,à ce jour, tous rédigé un compte rendu de réunion c'est pourquoi la prochaine personne en charge de celui-ci sera Mr.ROUABAH Mohammed.
+
+\end{document}
