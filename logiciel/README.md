@@ -5,7 +5,7 @@
 - **Assets/Scenes:** This folder contains the individual scenes that make up the game.
 - **Assets/Scripts:** This folder contains the C# or UnityScript scripts that control the behavior of the game objects in the scenes.
 - **Assets/Prefabs:** This folder contains prefabricated game objects that can be reused throughout the game.
-- Assets/Materials: This folder contains the materials used to texture the 3D models in the game.
+- **Assets/Materials:** This folder contains the materials used to texture the 3D models in the game.
 - **Assets/Textures:** This folder contains the textures used to texture the 3D models in the game.
 - **Assets/Audio:** This folder contains the audio files used in the game.
 - **Assets/Models:** This folder contains the 3D models used in the game.
