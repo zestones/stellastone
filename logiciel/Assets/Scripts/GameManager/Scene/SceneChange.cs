@@ -9,7 +9,7 @@ public class SceneChange : MonoBehaviour
 
     void Update()
     {
-        if (transform.position.y >= 1000)
+        if (transform.position.y >= 80000)
         {
             SceneManager.LoadScene(newSceneBuildIndex);
         }
