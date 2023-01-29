@@ -8,6 +8,11 @@ public class RocketLauncher : MonoBehaviour
     public float launchForce = 100f;
     public float fuel = 1000f;
 
+    void Start()
+    {
+        rocket.collisionDetectionMode = CollisionDetectionMode.Continuous;
+    }
+
     void Update()
     {
         if (Input.GetKey(KeyCode.Space) && fuel > 0)
