@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 public class RocketLauncher : MonoBehaviour
 {
@@ -7,6 +8,8 @@ public class RocketLauncher : MonoBehaviour
     public float fuel = 1000f;
     public ParticleSystem fireParticles;
     public ParticleSystem smokeParticles;
+    public TextMeshProUGUI speedText;
+    public TextMeshProUGUI altitudeText;
 
     void Start()
     {
@@ -17,6 +20,9 @@ public class RocketLauncher : MonoBehaviour
 
     void Update()
     {
+        speedText.text = rocket.velocity.magnitude.ToString("0.00");
+        altitudeText.text = transform.position.y.ToString("0.00");
+
         if (Input.GetKey(KeyCode.Space) && fuel > 0)
         {
             rocket.AddRelativeForce(Vector3.up * launchForce, ForceMode.Acceleration);
