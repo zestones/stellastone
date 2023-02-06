@@ -8,6 +8,7 @@ public class RocketLauncher : MonoBehaviour
     public float fuel = 1000f;
     public ParticleSystem fireParticles;
     public ParticleSystem smokeParticles;
+    
     public TextMeshProUGUI speedText;
     public TextMeshProUGUI altitudeText;
 
@@ -20,8 +21,8 @@ public class RocketLauncher : MonoBehaviour
 
     void Update()
     {
-        speedText.text = rocket.velocity.magnitude.ToString("0.00");
-        altitudeText.text = transform.position.y.ToString("0.00");
+        speedText.text = rocket.velocity.magnitude.ToString("0");
+        altitudeText.text = transform.position.y.ToString("0");
 
         if (Input.GetKey(KeyCode.Space) && fuel > 0)
         {
