@@ -908,7 +908,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 532833874}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ceeaa744f7d9c963a3849472901898a, type: 3}
+  m_Script: {fileID: 11500000, guid: 711348d2e91de45e69eda43e8e2d0321, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   usernameText: {fileID: 1348368526}
@@ -916,7 +916,7 @@ MonoBehaviour:
   parametres: {fileID: 1609571381}
   emailInput: {fileID: 474170551}
   usernameInput: {fileID: 1949665159}
-  descriptionInput: {fileID: 1881415086}
+  descriptionInput: {fileID: 0}
   username: 
   avatarImage: {fileID: 906993877}
 --- !u!114 &532833881
@@ -928,7 +928,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 532833874}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf312865d44e801d8b2089ce9e46b985, type: 3}
+  m_Script: {fileID: 11500000, guid: 22369a82ed71cb820b19f8a7c8bf75e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   avatarImage: {fileID: 1560890709}
@@ -2484,7 +2484,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1609571382
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3302,7 +3302,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2144595562
 RectTransform:
   m_ObjectHideFlags: 0
