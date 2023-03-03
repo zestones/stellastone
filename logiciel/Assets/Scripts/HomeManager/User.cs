@@ -1,24 +1,42 @@
+using System.Collections;
+using System.Collections.Generic;
 using PlayFab;
 using PlayFab.ClientModels;
 using System;
+using UnityEngine;
 
 public static class User
 {
-    private static string username;
-    private static string email;
-    private static string password;
+    public static string id;
+    public static string username;
+    public static string email;
+    public static string description;
+    public static string avatarUrl;
 
-    static User()
+    public static string GetId()
     {
-        // Initialisation des propriétés
-        username = string.Empty;
-        email = string.Empty;
-        password = string.Empty;
+        return id;
     }
 
     public static string GetUsername()
     {
         return username;
+    }
+
+    public static string GetEmail()
+    {
+        return email;
+    }
+
+
+    public static string GetDescription()
+    {
+        return description;
+    }
+
+    public static string GetAvatarUrl()
+    {
+        return avatarUrl;
     }
 
     // Enregistrement du joueur
@@ -46,8 +64,6 @@ public static class User
         {
             // Stockage des informations du joueur
             User.email = email;
-            User.password = password;
-
             onSuccess(result);
         }, onError);
     }
@@ -59,6 +75,44 @@ public static class User
             Email = email,
             TitleId = "CD8AB"
         };
-        PlayFabClientAPI.SendAccountRecoveryEmail(request, onSuccess, onError);
+        PlayFabClientAPI.SendAccountRecoveryEmail(request, OnResetPasswordSuccess, OnError);
+    }
+
+     public static void UpdateUsername(string newUsername)
+    {   username = newUsername;
+        var request = new UpdateUserTitleDisplayNameRequest { DisplayName = newUsername };
+        PlayFabClientAPI.UpdateUserTitleDisplayName(request, OnUpdateUsernameSuccess, OnError);
+    }
+    public static void UpdateDescription(string newDescription)
+    {   description = newDescription;
+        // Met à jour les données utilisateur avec une nouvelle description
+        var request = new UpdateUserDataRequest
+        {
+            Data = new Dictionary<string, string>
+            {
+                { "description", newDescription }
+            }
+        };
+        PlayFabClientAPI.UpdateUserData(request, OnUpdateSuccess, OnUpdateFailure);
+    }
+    private static void OnUpdateUsernameSuccess(UpdateUserTitleDisplayNameResult result)
+    {
+        Debug.Log("Updated description successfully");
+    }
+    private static void OnResetPasswordSuccess(SendAccountRecoveryEmailResult result)
+    {
+        Debug.Log("Password recovery mail sent successfully");
+    }
+    private static void OnUpdateSuccess(UpdateUserDataResult result)
+    {
+        Debug.Log("Updated description successfully");
+    }
+    private static void OnUpdateFailure(PlayFabError error)
+    {
+        Debug.LogError("Failed to update : " + error.ErrorMessage);
+    }
+    static void OnError(PlayFabError error)
+    {
+        Debug.Log(error.GenerateErrorReport());
     }
 }

@@ -10,10 +10,13 @@ using PlayFab;
 public class AvatarManager : MonoBehaviour
 {  
     public RawImage avatarImage; // Référence à l'élément d'interface graphique où afficher l'avatar
- 
-    private static string localImagePath; // Chemin d'accès local du fichier image sélectionné
-
-
+    public static string localImagePath;
+    void Start(){
+        Invoke( "loadAvatar" , 3.0f);
+    }
+    void loadAvatar(){
+        StartCoroutine(LoadLocalImage(User.GetAvatarUrl()));
+    }
     public void OnBrowseButtonClick()
     {
         // Ouvre la boîte de dialogue de sélection de fichiers

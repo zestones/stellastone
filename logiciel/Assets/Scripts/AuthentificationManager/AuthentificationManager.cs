@@ -59,9 +59,10 @@ public class AuthentificationManager : MonoBehaviour
     }
 
     void OnLoginSuccess(LoginResult result)
-    {
+    {   
         messageText.text = "Connexion réussie.";
         Debug.Log("Connexion réussie.");
+        initUser();
         SceneManager.LoadScene("Home");
     }
 
@@ -82,4 +83,67 @@ public class AuthentificationManager : MonoBehaviour
         messageText.text = error.ErrorMessage;
         Debug.Log(error.GenerateErrorReport());
     }
+
+    void initUser()
+    {   // Initialisation des propriétés de la classe statique User avant de passer  à la scène suivante
+        if (PlayFabClientAPI.IsClientLoggedIn()){
+        //récupération de l'id, username et email de l'utilisateur
+        InitInfos();
+        //récupération de la description de l'utilisateur
+        InitDescription();
+        //récupération de l'avatar de l'utilisateur de l'utilisateur
+        InitAvatarUrl(User.id);
+        }
+    }
+    private static void InitInfos(){
+        //récupération de l'id, username et email de l'utilisateur
+        PlayFabClientAPI.GetAccountInfo(new GetAccountInfoRequest(), result =>
+        {
+            Debug.Log("GetAccountInfoSuccess");
+            User.id = result.AccountInfo.PlayFabId;
+            User.username = result.AccountInfo.Username;
+            User.email = result.AccountInfo.PrivateInfo.Email;
+        }, error => Debug.LogError(error.GenerateErrorReport()));
+    }
+    private static void InitDescription(){
+        //récupération de la description de l'utilisateur
+         PlayFabClientAPI.GetUserData(new GetUserDataRequest()
+        {
+            Keys = new List<string>() { "description" }
+        }, result => {
+             if (result.Data.TryGetValue("description", out PlayFab.ClientModels.UserDataRecord descriptionOut))
+            {
+                User.description = descriptionOut.Value;
+                Debug.Log("Description: " + User.description);
+            }
+            else
+            {   User.description = " ";
+                Debug.Log("Description not found.");
+            }
+        }
+        , error => Debug.LogError(error.GenerateErrorReport()));
+    }
+    private static void InitAvatarUrl(string playFabId)
+    {   //récupération de l'avatar de l'utilisateur de l'utilisateur
+        PlayFabClientAPI.GetPlayerProfile(new GetPlayerProfileRequest
+        {
+            PlayFabId = playFabId,
+            ProfileConstraints = new PlayerProfileViewConstraints
+            {
+                ShowAvatarUrl = true
+            }
+        }, result =>
+        {
+            if (result.PlayerProfile != null && !string.IsNullOrEmpty(result.PlayerProfile.AvatarUrl))
+            {
+                User.avatarUrl = result.PlayerProfile.AvatarUrl;
+                Debug.Log("On a l'avatar URL !" + User.avatarUrl);
+            }
+            else
+            {
+               User.avatarUrl = " ";
+            }
+        }, error => Debug.LogError(error.GenerateErrorReport()));
+    }
+
 }
