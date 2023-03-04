@@ -7,6 +7,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.IO;
 
+
 public class HomeManager : MonoBehaviour
 {
     public Text usernameText;
@@ -19,14 +20,14 @@ public class HomeManager : MonoBehaviour
     public RawImage avatarImage; // Référence à l'élément d'interface graphique où afficher l'avatar
 
     void Start()
-    {   usernameText.text=" ";
+    {   
         home.SetActive(true);
         parametres.SetActive(false);
         float delay = 3.0f;
         Invoke("InitUser", delay);
     }
     void InitUser()
-    {
+    {   usernameText.text=User.GetUsername();
         emailInput.text = User.GetEmail();
         descriptionInput.text = User.GetDescription();
         usernameInput.text = User.GetUsername();
