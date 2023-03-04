@@ -6,7 +6,7 @@ using UnityEngine.Networking;
 using System.IO;
 using PlayFab.ClientModels;
 using PlayFab;
-
+using UnityEditor;
 public class AvatarManager : MonoBehaviour
 {  
     public RawImage avatarImageParametres; // Référence à l'élément d'interface graphique où afficher l'avatar

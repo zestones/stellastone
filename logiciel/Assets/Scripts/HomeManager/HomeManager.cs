@@ -19,10 +19,9 @@ public class HomeManager : MonoBehaviour
     
 
     void Start()
-    {   
+    {   InitUser();
         home.SetActive(true);
         parametres.SetActive(false);
-        Invoke("InitUser", 3.0f);
     }
     void InitUser()
     {   usernameText.text=User.GetUsername();
@@ -34,7 +33,10 @@ public class HomeManager : MonoBehaviour
         home.SetActive(false);
         parametres.SetActive(true);
     }
-    
+    public void redirectHome(){
+        home.SetActive(true);
+        parametres.SetActive(false);
+    }
     public void updateUserInfos(){
         if (usernameInput.text != User.GetUsername()){
             UpdateUsername(usernameInput.text);

@@ -15,12 +15,16 @@ public class AuthentificationManager : MonoBehaviour
     public InputField passwordInput;
     public GameObject login;
     public GameObject register;
-
+    private bool isLoading = false;
+    public Canvas loader;
+    public Slider slider;
 
     void Start()
     {
         login.SetActive(false);
+        loader.gameObject.SetActive(false);
         messageText.text = " ";
+        
     }
 
     public void AlreadyMember()
@@ -62,8 +66,8 @@ public class AuthentificationManager : MonoBehaviour
     {   
         messageText.text = "Connexion réussie.";
         Debug.Log("Connexion réussie.");
+        loader.gameObject.SetActive(true);
         initUser();
-        SceneManager.LoadScene("Home");
     }
 
     public void ResetPasswordButton()
@@ -83,19 +87,26 @@ public class AuthentificationManager : MonoBehaviour
         messageText.text = error.ErrorMessage;
         Debug.Log(error.GenerateErrorReport());
     }
-
     void initUser()
+    {   
+        StartCoroutine(GetUserData());
+    }
+    IEnumerator GetUserData()
     {   // Initialisation des propriétés de la classe statique User avant de passer  à la scène suivante
-        if (PlayFabClientAPI.IsClientLoggedIn()){
         //récupération de l'id, username et email de l'utilisateur
+        isLoading = true;
         InitInfos();
+        yield return new WaitUntil(() => slider.value >= 0.33f );
         //récupération de la description de l'utilisateur
         InitDescription();
+        yield return new WaitUntil(() => slider.value >= 0.67f );
         //récupération de l'avatar de l'utilisateur de l'utilisateur
         InitAvatarUrl(User.id);
-        }
+        // Charger la scène Home
+        yield return new WaitUntil(() => isLoading == false);
+        SceneManager.LoadSceneAsync("Home");
     }
-    private static void InitInfos(){
+    private void InitInfos(){
         //récupération de l'id, username et email de l'utilisateur
         PlayFabClientAPI.GetAccountInfo(new GetAccountInfoRequest(), result =>
         {
@@ -104,8 +115,9 @@ public class AuthentificationManager : MonoBehaviour
             User.username = result.AccountInfo.Username;
             User.email = result.AccountInfo.PrivateInfo.Email;
         }, error => Debug.LogError(error.GenerateErrorReport()));
+        slider.value = 0.33f;
     }
-    private static void InitDescription(){
+    private void InitDescription(){
         //récupération de la description de l'utilisateur
          PlayFabClientAPI.GetUserData(new GetUserDataRequest()
         {
@@ -122,8 +134,9 @@ public class AuthentificationManager : MonoBehaviour
             }
         }
         , error => Debug.LogError(error.GenerateErrorReport()));
+        slider.value = 0.67f;
     }
-    private static void InitAvatarUrl(string playFabId)
+    private void InitAvatarUrl(string playFabId)
     {   //récupération de l'avatar de l'utilisateur de l'utilisateur
         PlayFabClientAPI.GetPlayerProfile(new GetPlayerProfileRequest
         {
@@ -143,7 +156,9 @@ public class AuthentificationManager : MonoBehaviour
             {
                User.avatarUrl = " ";
             }
+            isLoading = false;
         }, error => Debug.LogError(error.GenerateErrorReport()));
+        slider.value = 1.0f;
     }
 
 }
