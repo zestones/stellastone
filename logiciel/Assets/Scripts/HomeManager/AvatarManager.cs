@@ -9,7 +9,8 @@ using PlayFab;
 
 public class AvatarManager : MonoBehaviour
 {  
-    public RawImage avatarImage; // Référence à l'élément d'interface graphique où afficher l'avatar
+    public RawImage avatarImageParametres; // Référence à l'élément d'interface graphique où afficher l'avatar
+    public RawImage avatarImageHome; // Référence à l'élément d'interface graphique où afficher l'avatar
     public static string localImagePath;
     void Start(){
         Invoke( "loadAvatar" , 3.0f);
@@ -40,11 +41,11 @@ public class AvatarManager : MonoBehaviour
         texture.LoadImage(fileContent);
 
         // Vérifie que l'objet RawImage est bien initialisé
-        if (avatarImage != null)
+        if (avatarImageParametres != null && avatarImageHome != null)
         {
             // Affiche l'image dans l'UI
-            avatarImage.texture = texture;
-            avatarImage.gameObject.SetActive(true);
+            avatarImageParametres.texture = texture; avatarImageHome.texture = texture;
+            avatarImageParametres.gameObject.SetActive(true); avatarImageHome.gameObject.SetActive(true);
         }
         else
         {
@@ -70,7 +71,7 @@ public class AvatarManager : MonoBehaviour
     }
 
     private void OnUpdateAvatarUrlSuccess(EmptyResponse response)
-    {
+    {   
         Debug.Log("Avatar URL updated successfully");   
     }   
 

@@ -16,22 +16,19 @@ public class HomeManager : MonoBehaviour
     public InputField emailInput;
     public InputField usernameInput;
     public InputField descriptionInput;
-
-    public RawImage avatarImage; // Référence à l'élément d'interface graphique où afficher l'avatar
+    
 
     void Start()
     {   
         home.SetActive(true);
         parametres.SetActive(false);
-        float delay = 3.0f;
-        Invoke("InitUser", delay);
+        Invoke("InitUser", 3.0f);
     }
     void InitUser()
     {   usernameText.text=User.GetUsername();
         emailInput.text = User.GetEmail();
         descriptionInput.text = User.GetDescription();
         usernameInput.text = User.GetUsername();
-        StartCoroutine(LoadLocalImage(User.GetAvatarUrl()));
     }
     public void redirectParametres(){
         home.SetActive(false);
@@ -62,24 +59,4 @@ public class HomeManager : MonoBehaviour
         Debug.Log(error.GenerateErrorReport());
     }
 
-    private IEnumerator LoadLocalImage(string filePath)
-    {
-        // Charge l'image sélectionnée depuis le fichier local
-        var fileContent = File.ReadAllBytes(filePath);
-        Texture2D texture = new Texture2D(2, 2);
-        texture.LoadImage(fileContent);
-
-        // Vérifie que l'objet RawImage est bien initialisé
-        if (avatarImage != null)
-        {
-            // Affiche l'image dans l'UI
-            avatarImage.texture = texture;
-            avatarImage.gameObject.SetActive(true);
-        }
-        else
-        {
-            Debug.LogWarning("RawImage not found");
-        }
-        yield return null;
-    }
 }
