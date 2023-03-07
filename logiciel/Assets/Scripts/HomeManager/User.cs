@@ -93,17 +93,17 @@ public static class User
                 { "description", newDescription }
             }
         };
-        PlayFabClientAPI.UpdateUserData(request, OnUpdateSuccess, OnUpdateFailure);
+        PlayFabClientAPI.UpdateUserData(request, OnUpdateDescriptionSuccess, OnUpdateFailure);
     }
     private static void OnUpdateUsernameSuccess(UpdateUserTitleDisplayNameResult result)
     {
-        Debug.Log("Updated description successfully");
+        Debug.Log("Updated username successfully");
     }
     private static void OnResetPasswordSuccess(SendAccountRecoveryEmailResult result)
     {
         Debug.Log("Password recovery mail sent successfully");
     }
-    private static void OnUpdateSuccess(UpdateUserDataResult result)
+    private static void OnUpdateDescriptionSuccess(UpdateUserDataResult result)
     {
         Debug.Log("Updated description successfully");
     }
@@ -114,5 +114,5 @@ public static class User
     static void OnError(PlayFabError error)
     {
         Debug.Log(error.GenerateErrorReport());
-    }
+    } 
 }

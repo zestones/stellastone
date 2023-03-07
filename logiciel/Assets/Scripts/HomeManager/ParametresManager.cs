@@ -36,8 +36,6 @@ public class ParametresManager : MonoBehaviour
     }
 
    
-    
-
     public void ResetPassword(){
         string email=User.GetEmail();
         User.ResetPassword(email,OnPasswordResetSuccess,OnError);

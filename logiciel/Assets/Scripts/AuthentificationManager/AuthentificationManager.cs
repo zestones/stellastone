@@ -66,8 +66,9 @@ public class AuthentificationManager : MonoBehaviour
     {   
         messageText.text = "Connexion réussie.";
         Debug.Log("Connexion réussie.");
+        User.id=result.PlayFabId;
         loader.gameObject.SetActive(true);
-        initUser();
+        StartCoroutine(GetUserData());
     }
 
     public void ResetPasswordButton()
@@ -87,36 +88,51 @@ public class AuthentificationManager : MonoBehaviour
         messageText.text = error.ErrorMessage;
         Debug.Log(error.GenerateErrorReport());
     }
-    void initUser()
-    {   
-        StartCoroutine(GetUserData());
-    }
+
     IEnumerator GetUserData()
     {   // Initialisation des propriétés de la classe statique User avant de passer  à la scène suivante
         //récupération de l'id, username et email de l'utilisateur
         isLoading = true;
-        InitInfos();
-        yield return new WaitUntil(() => slider.value >= 0.33f );
         //récupération de la description de l'utilisateur
+        InitDisplayNameAvatarUrl(User.id);
+        yield return new WaitUntil(() => slider.value >= 0.50f );
         InitDescription();
-        yield return new WaitUntil(() => slider.value >= 0.67f );
         //récupération de l'avatar de l'utilisateur de l'utilisateur
-        InitAvatarUrl(User.id);
         // Charger la scène Home
         yield return new WaitUntil(() => isLoading == false);
         SceneManager.LoadSceneAsync("Home");
     }
-    private void InitInfos(){
-        //récupération de l'id, username et email de l'utilisateur
-        PlayFabClientAPI.GetAccountInfo(new GetAccountInfoRequest(), result =>
+
+    private void InitDisplayNameAvatarUrl(string playFabId)
+    {   //récupération de l'avatar de l'utilisateur de l'utilisateur
+        PlayFabClientAPI.GetPlayerProfile(new GetPlayerProfileRequest
         {
-            Debug.Log("GetAccountInfoSuccess");
-            User.id = result.AccountInfo.PlayFabId;
-            User.username = result.AccountInfo.Username;
-            User.email = result.AccountInfo.PrivateInfo.Email;
+            PlayFabId = playFabId,
+            ProfileConstraints = new PlayerProfileViewConstraints
+            {
+                ShowAvatarUrl = true,
+                ShowDisplayName = true
+            }
+        }, result =>
+        {
+            if (result.PlayerProfile != null && !string.IsNullOrEmpty(result.PlayerProfile.AvatarUrl))
+            {
+                User.avatarUrl = result.PlayerProfile.AvatarUrl;
+                User.username = result.PlayerProfile.DisplayName;
+                Debug.Log("avatar URL =" + User.avatarUrl);
+                Debug.Log("username = " + User.username);
+
+            }
+            else
+            {
+               User.avatarUrl = "/home/bizak/Téléchargements/stellavatar.png";
+               User.username = result.PlayerProfile.DisplayName;
+            }
+            isLoading = false;
         }, error => Debug.LogError(error.GenerateErrorReport()));
-        slider.value = 0.33f;
+        slider.value = 0.50f;
     }
+
     private void InitDescription(){
         //récupération de la description de l'utilisateur
          PlayFabClientAPI.GetUserData(new GetUserDataRequest()
@@ -134,30 +150,6 @@ public class AuthentificationManager : MonoBehaviour
             }
         }
         , error => Debug.LogError(error.GenerateErrorReport()));
-        slider.value = 0.67f;
-    }
-    private void InitAvatarUrl(string playFabId)
-    {   //récupération de l'avatar de l'utilisateur de l'utilisateur
-        PlayFabClientAPI.GetPlayerProfile(new GetPlayerProfileRequest
-        {
-            PlayFabId = playFabId,
-            ProfileConstraints = new PlayerProfileViewConstraints
-            {
-                ShowAvatarUrl = true
-            }
-        }, result =>
-        {
-            if (result.PlayerProfile != null && !string.IsNullOrEmpty(result.PlayerProfile.AvatarUrl))
-            {
-                User.avatarUrl = result.PlayerProfile.AvatarUrl;
-                Debug.Log("On a l'avatar URL !" + User.avatarUrl);
-            }
-            else
-            {
-               User.avatarUrl = " ";
-            }
-            isLoading = false;
-        }, error => Debug.LogError(error.GenerateErrorReport()));
         slider.value = 1.0f;
     }
 

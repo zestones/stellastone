@@ -13,9 +13,6 @@ public class AvatarManager : MonoBehaviour
     public RawImage avatarImageHome; // Référence à l'élément d'interface graphique où afficher l'avatar
     public static string localImagePath;
     void Start(){
-        Invoke( "loadAvatar" , 3.0f);
-    }
-    void loadAvatar(){
         StartCoroutine(LoadLocalImage(User.GetAvatarUrl()));
     }
     public void OnBrowseButtonClick()
