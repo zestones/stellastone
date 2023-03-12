@@ -37,6 +37,10 @@ public class HomeManager : MonoBehaviour
         home.SetActive(true);
         parametres.SetActive(false);
     }
+
+    public void redirectAtelier(){
+        SceneManager.LoadScene("Atelier");
+    }
     public void updateUserInfos(){
         if (usernameInput.text != User.GetUsername()){
             UpdateUsername(usernameInput.text);
@@ -60,5 +64,7 @@ public class HomeManager : MonoBehaviour
     {
         Debug.Log(error.GenerateErrorReport());
     }
+
+    
 
 }
