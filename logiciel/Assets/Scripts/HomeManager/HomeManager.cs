@@ -7,47 +7,50 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.IO;
 
-
 public class HomeManager : MonoBehaviour
 {
-    public Text usernameText;
-    public GameObject home;
-    public GameObject parametres;
-    public InputField emailInput;
-    public InputField usernameInput;
-    public InputField descriptionInput;
-    
+    // Constantes
+    private const string ATELIER_SCENE_NAME = "Atelier";
 
-    void Start()
-    {   InitUser();
-        home.SetActive(true);
-        parametres.SetActive(false);
+    // Références aux objets de la scène
+    private GameObject homeObject;
+    private GameObject parametresObject;
+    private Text usernameText;
+    private InputField emailInput;
+    private InputField descriptionInput;
+    private InputField usernameInput; 
+
+    private void Start()
+    {
+        ShowHome();
+        UpdateUserInfo();
     }
-    void InitUser()
-    {   usernameText.text=User.GetUsername();
+
+    // Navigation
+    public void ShowHome()
+    {
+        homeObject.SetActive(true);
+        parametresObject.SetActive(false);
+    }
+
+    public void ShowParametres()
+    {
+        homeObject.SetActive(false);
+        parametresObject.SetActive(true);
+    }
+
+    public void LoadAtelierScene()
+    {
+        SceneManager.LoadScene(ATELIER_SCENE_NAME);
+    }
+
+    // Mise à jour des informations de l'utilisateur
+    public void UpdateUserInfo()
+    {
+        usernameText.text = User.GetUsername();
         emailInput.text = User.GetEmail();
         descriptionInput.text = User.GetDescription();
         usernameInput.text = User.GetUsername();
-    }
-    public void redirectParametres(){
-        home.SetActive(false);
-        parametres.SetActive(true);
-    }
-    public void redirectHome(){
-        home.SetActive(true);
-        parametres.SetActive(false);
-    }
-
-    public void redirectAtelier(){
-        SceneManager.LoadScene("Atelier");
-    }
-    public void updateUserInfos(){
-        if (usernameInput.text != User.GetUsername()){
-            UpdateUsername(usernameInput.text);
-        }
-        if (descriptionInput.text != User.GetDescription()){
-            UpdateDescription(descriptionInput.text);
-        }
     }
 
     public void UpdateUsername(string newUsername)
@@ -60,11 +63,9 @@ public class HomeManager : MonoBehaviour
         User.UpdateDescription(newDescription);
     }
 
+    // Gestion des erreurs
     public void OnError(PlayFabError error)
     {
         Debug.Log(error.GenerateErrorReport());
     }
-
-    
-
 }

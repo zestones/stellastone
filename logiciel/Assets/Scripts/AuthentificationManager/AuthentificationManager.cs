@@ -19,6 +19,8 @@ public class AuthentificationManager : MonoBehaviour
     public Canvas loader;
     public Slider slider;
 
+    private const string HOME_SCENE_NAME = "HomeScene";
+
     void Start()
     {
         login.SetActive(false);
@@ -100,7 +102,7 @@ public class AuthentificationManager : MonoBehaviour
         //récupération de l'avatar de l'utilisateur de l'utilisateur
         // Charger la scène Home
         yield return new WaitUntil(() => isLoading == false);
-        SceneManager.LoadSceneAsync("Home");
+        SceneManager.LoadSceneAsync(HOME_SCENE_NAME);
     }
 
     private void InitDisplayNameAvatarUrl(string playFabId)
