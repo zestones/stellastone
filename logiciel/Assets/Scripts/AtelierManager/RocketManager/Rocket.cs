@@ -18,9 +18,4 @@ public class Rocket
         Power = power;
         Model = model;
     }
-
-    public string DisplayInfo()
-    {   
-       return "Name: " + Name + "\n Description: " + Description + "\n Cost: " + Cost + "\n Power: " + Power;
-    }
 }

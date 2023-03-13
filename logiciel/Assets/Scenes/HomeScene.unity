@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571343, b: 0.30692208, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -568,7 +568,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1609571383}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ParametresManager, Assembly-CSharp
         m_MethodName: ResetPassword
         m_Mode: 1
@@ -629,6 +629,7 @@ GameObject:
   - component: {fileID: 382258383}
   - component: {fileID: 382258385}
   - component: {fileID: 382258384}
+  - component: {fileID: 382258386}
   m_Layer: 5
   m_Name: UserInfos
   m_TagString: Untagged
@@ -700,6 +701,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 382258382}
   m_CullTransparentMesh: 1
+--- !u!114 &382258386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 382258382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 121eea74a7168a64e81bbba2158e9e05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToToggle: {fileID: 1265291896}
+  hoverColor: {r: 0.9607844, g: 0.14117648, b: 0.38431376, a: 1}
+  selectedColor: {r: 0.9058824, g: 0.24705884, b: 0.4039216, a: 1}
+  isHovered: 0
+  isSelected: 0
+  isInitiallySelected: 1
 --- !u!1 &406313035
 GameObject:
   m_ObjectHideFlags: 0
@@ -998,7 +1017,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1609571383}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ParametresManager, Assembly-CSharp
         m_MethodName: ClickMdp
         m_Mode: 1
@@ -1573,6 +1592,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 614455817}
+  - component: {fileID: 614455818}
   m_Layer: 5
   m_Name: LateralPanel
   m_TagString: Untagged
@@ -1605,6 +1625,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &614455818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 614455816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30c55f65f16c6f54b8761e161a13d49c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &657102585
 GameObject:
   m_ObjectHideFlags: 0
@@ -3098,7 +3130,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1609571383}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ParametresManager, Assembly-CSharp
         m_MethodName: ClickDonnees
         m_Mode: 1
@@ -3436,6 +3468,7 @@ GameObject:
   - component: {fileID: 1370555332}
   - component: {fileID: 1370555334}
   - component: {fileID: 1370555333}
+  - component: {fileID: 1370555335}
   m_Layer: 5
   m_Name: Password
   m_TagString: Untagged
@@ -3507,6 +3540,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1370555331}
   m_CullTransparentMesh: 1
+--- !u!114 &1370555335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370555331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 121eea74a7168a64e81bbba2158e9e05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToToggle: {fileID: 468902922}
+  hoverColor: {r: 0.9607844, g: 0.14117648, b: 0.38431376, a: 1}
+  selectedColor: {r: 0.9607844, g: 0.14117648, b: 0.38431376, a: 1}
+  isHovered: 0
+  isSelected: 0
+  isInitiallySelected: 0
 --- !u!1001 &1381763047
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4009,9 +4060,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64c22417842e80d96916e025dd2eb30c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  motdepasse: {fileID: 468902922}
-  donnees: {fileID: 754034715}
-  infosUtilisateur: {fileID: 1265291896}
   messageText: {fileID: 6544277}
 --- !u!1 &1673561985
 GameObject:
@@ -4024,6 +4072,7 @@ GameObject:
   - component: {fileID: 1673561986}
   - component: {fileID: 1673561988}
   - component: {fileID: 1673561987}
+  - component: {fileID: 1673561989}
   m_Layer: 5
   m_Name: Donnees
   m_TagString: Untagged
@@ -4093,6 +4142,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1673561985}
   m_CullTransparentMesh: 1
+--- !u!114 &1673561989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673561985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 121eea74a7168a64e81bbba2158e9e05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToToggle: {fileID: 754034715}
+  hoverColor: {r: 0.9607844, g: 0.14117648, b: 0.38431376, a: 1}
+  selectedColor: {r: 0.9607844, g: 0.14117648, b: 0.38431376, a: 1}
+  isHovered: 0
+  isSelected: 0
+  isInitiallySelected: 0
 --- !u!1 &1779770299
 GameObject:
   m_ObjectHideFlags: 0
@@ -4889,7 +4956,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1609571383}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ParametresManager, Assembly-CSharp
         m_MethodName: ClickInfos
         m_Mode: 1

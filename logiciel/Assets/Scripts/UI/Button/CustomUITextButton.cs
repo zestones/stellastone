@@ -54,10 +54,6 @@ public class CustomUITextButton : MonoBehaviour, IPointerEnterHandler, IPointerE
                 buttonGroup.OnButtonSelect(this);
             }
         }
-        else
-        {
-            OnDeselect(eventData);
-        }
     }
 
     public void OnSelect(BaseEventData eventData)
