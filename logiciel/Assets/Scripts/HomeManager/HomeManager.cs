@@ -7,65 +7,66 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.IO;
 
+
 public class HomeManager : MonoBehaviour
 {
-    // Constantes
-    private const string ATELIER_SCENE_NAME = "Atelier";
+	public Text usernameText;
+	public GameObject home;
+	public GameObject parametres;
+	public InputField emailInput;
+	public InputField usernameInput;
+	public InputField descriptionInput;
+	
+	private const string ATELIER_SCENE_NAME = "AtelierScene";
 
-    // Références aux objets de la scène
-    private GameObject homeObject;
-    private GameObject parametresObject;
-    private Text usernameText;
-    private InputField emailInput;
-    private InputField descriptionInput;
-    private InputField usernameInput; 
+	void Start()
+	{   InitUser();
+		home.SetActive(true);
+		parametres.SetActive(false);
+	}
+	
+	void InitUser()
+	{   usernameText.text=User.GetUsername();
+		emailInput.text = User.GetEmail();
+		descriptionInput.text = User.GetDescription();
+		usernameInput.text = User.GetUsername();
+	}
+	
+	public void redirectParametres(){
+		home.SetActive(false);
+		parametres.SetActive(true);
+	}
+	
+	public void redirectHome(){
+		home.SetActive(true);
+		parametres.SetActive(false);
+	}
 
-    private void Start()
-    {
-        ShowHome();
-        UpdateUserInfo();
-    }
+	public void redirectAtelier(){
+		SceneManager.LoadScene(ATELIER_SCENE_NAME);
+	}
+	
+	public void updateUserInfos(){
+		if (usernameInput.text != User.GetUsername()){
+			UpdateUsername(usernameInput.text);
+		}
+		if (descriptionInput.text != User.GetDescription()){
+			UpdateDescription(descriptionInput.text);
+		}
+	}
 
-    // Navigation
-    public void ShowHome()
-    {
-        homeObject.SetActive(true);
-        parametresObject.SetActive(false);
-    }
+	public void UpdateUsername(string newUsername)
+	{
+		User.UpdateUsername(newUsername);
+	}
 
-    public void ShowParametres()
-    {
-        homeObject.SetActive(false);
-        parametresObject.SetActive(true);
-    }
+	public void UpdateDescription(string newDescription)
+	{
+		User.UpdateDescription(newDescription);
+	}
 
-    public void LoadAtelierScene()
-    {
-        SceneManager.LoadScene(ATELIER_SCENE_NAME);
-    }
-
-    // Mise à jour des informations de l'utilisateur
-    public void UpdateUserInfo()
-    {
-        usernameText.text = User.GetUsername();
-        emailInput.text = User.GetEmail();
-        descriptionInput.text = User.GetDescription();
-        usernameInput.text = User.GetUsername();
-    }
-
-    public void UpdateUsername(string newUsername)
-    {
-        User.UpdateUsername(newUsername);
-    }
-
-    public void UpdateDescription(string newDescription)
-    {
-        User.UpdateDescription(newDescription);
-    }
-
-    // Gestion des erreurs
-    public void OnError(PlayFabError error)
-    {
-        Debug.Log(error.GenerateErrorReport());
-    }
+	public void OnError(PlayFabError error)
+	{
+		Debug.Log(error.GenerateErrorReport());
+	}
 }
