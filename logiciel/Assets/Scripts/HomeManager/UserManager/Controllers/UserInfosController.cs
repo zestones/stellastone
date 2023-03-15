@@ -12,9 +12,11 @@ public class UserInfosController : MonoBehaviour
 {
 	public Text messageText;	
 	public InputField usernameInput, descriptionInput;
+	
 	private static string localImagePath;
 	private const string PROFIL_SCENE_NAME = "ProfilScene";
-
+	private Sprite tmpAvatar;
+	
 	public void ResetPassword()
 	{
 		User.ResetPassword(User.Email, OnPasswordResetSuccess, OnError);
@@ -43,15 +45,15 @@ public class UserInfosController : MonoBehaviour
 	public void OpenWindowChangeAvatar()
 	{
 		// Ouvre la boîte de dialogue de sélection de fichiers
-		string filePath = UnityEditor.EditorUtility.OpenFilePanel("Select image file", "", "png,jpg,jpeg");
+		string filePath = UnityEditor.EditorUtility.OpenFilePanel("Select image file", "", "png, jpg, jpeg");
 
 		if (!string.IsNullOrEmpty(filePath))
 		{
 			// Stocke le chemin d'accès local du fichier sélectionné
 			localImagePath = filePath;
 			// Affiche l'image sélectionnée
-			User.Avatar = LoadAvatarFromUrl(filePath);
-			DisplayUserInfos.SetUserInfos();
+			tmpAvatar = LoadAvatarFromUrl(filePath);
+			DisplayUserInfos.SetUserInfos(tmpAvatar);
 		}
 	}
 	
@@ -65,6 +67,7 @@ public class UserInfosController : MonoBehaviour
 
 		// On update l'Utilisateur
 		User.AvatarUrl = localImagePath;
+		User.Avatar = tmpAvatar;
 		// Envoie l'image sélectionnée à PlayFab
 		PlayFabClientAPI.UpdateAvatarUrl(new UpdateAvatarUrlRequest
 		{

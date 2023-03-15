@@ -37,7 +37,7 @@ public class DisplayUserInfos : MonoBehaviour
 		SetUserInfos();
 	}
 
-	public static void SetUserInfos()
+	public static void SetUserInfos(Sprite avatar = null)
 	{
 		// Met à jour les éléments d'interface utilisateur avec les informations d'utilisateur
 		if (usernameText != null)
@@ -52,7 +52,14 @@ public class DisplayUserInfos : MonoBehaviour
 		
 		if (avatarImage != null)
 		{
-			avatarImage.sprite = User.Avatar;
+			if (avatar == null) 
+			{
+				avatarImage.sprite = User.Avatar;
+			}
+			else 
+			{
+				avatarImage.sprite = avatar;
+			}
 		}
 	}
 }
