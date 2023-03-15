@@ -22,7 +22,7 @@ public static class PlayFabAPI
 		};
 		PlayFabClientAPI.RegisterPlayFabUser(request, 
 		result => { OnRegisterSuccess(result, messageText); registerSuccess.SetResult(true); },
-		error => { OnError(error); registerSuccess.SetResult(false); });
+		error => { OnError(error, messageText); registerSuccess.SetResult(false); });
 		
 		return await registerSuccess.Task;
 	}
@@ -37,7 +37,7 @@ public static class PlayFabAPI
 		};
 		PlayFabClientAPI.LoginWithEmailAddress(request, 
 		result => { OnLoginSuccess(result, messageText, email); loginSuccess.SetResult(true); },
-		error => { OnError(error); loginSuccess.SetResult(false); });
+		error => { OnError(error, messageText); loginSuccess.SetResult(false); });
 		
 		return await loginSuccess.Task;
 	}
@@ -51,8 +51,8 @@ public static class PlayFabAPI
 			TitleId = "CD8AB"
 		};
 		PlayFabClientAPI.SendAccountRecoveryEmail(request,
-			result =>{ OnResetPasswordSuccess(result, messageText); },
-			error => { OnError(error);}
+			result => { OnResetPasswordSuccess(result, messageText); },
+			error => { OnError(error, messageText);}
 		);
 	}
 
@@ -60,7 +60,8 @@ public static class PlayFabAPI
 	{   
 		User.Username = newUsername;
 		var request = new UpdateUserTitleDisplayNameRequest { DisplayName = newUsername };
-		PlayFabClientAPI.UpdateUserTitleDisplayName(request, OnUpdateUsernameSuccess, OnError);
+		PlayFabClientAPI.UpdateUserTitleDisplayName(request, OnSuccess,
+		error => { OnError(error); });
 	}
 
 	public static void UpdateDescription(string newDescription)
@@ -74,7 +75,8 @@ public static class PlayFabAPI
 				{ "description", newDescription }
 			}
 		};
-		PlayFabClientAPI.UpdateUserData(request, OnUpdateDescriptionSuccess, OnUpdateFailure);
+		PlayFabClientAPI.UpdateUserData(request, OnSuccess,
+		error => { OnError(error); });
 	}
 	
 	public static void UpdateAvatar(string imgPath) 
@@ -83,7 +85,8 @@ public static class PlayFabAPI
 		PlayFabClientAPI.UpdateAvatarUrl(new UpdateAvatarUrlRequest
 		{
 			ImageUrl = imgPath
-		}, OnUpdateAvatarUrlSuccess, OnUpdateAvatarUrlFailure);
+		}, OnSuccess,
+		error => { OnError(error); });
 	}
 	
 	
@@ -169,33 +172,14 @@ public static class PlayFabAPI
 		messageText.text = "Password recovery mail sent successfully";
 	}
 	
-	private static void OnUpdateUsernameSuccess(UpdateUserTitleDisplayNameResult result)
-	{
-		Debug.Log("Updated username successfully");
-	}
+	// * - GENERIC HANDLER
 	
-	private static void OnUpdateDescriptionSuccess(UpdateUserDataResult result)
-	{
-		Debug.Log("Updated description successfully");
-	}
+	private static void OnSuccess<T>(T result) { }
+ 
 	
-	private static void OnUpdateFailure(PlayFabError error)
+	private static void OnError(PlayFabError error, Text messageText = null)
 	{
-		Debug.LogError("Failed to update : " + error.ErrorMessage);
-	}
-	
-	private static void OnUpdateAvatarUrlSuccess(EmptyResponse response)
-	{   
-		Debug.Log("Avatar URL updated successfully");   
-	}   
-
-	private static void OnUpdateAvatarUrlFailure(PlayFabError error)
-	{
-		Debug.LogError("Failed to update avatar URL: " + error.ErrorMessage);
-	}
-	
-	static void OnError(PlayFabError error)
-	{
+		if (messageText != null) messageText.text = error.GenerateErrorReport(); 
 		Debug.Log(error.GenerateErrorReport());
 	} 
 }

@@ -15,15 +15,15 @@ public class AuthentificationManager : MonoBehaviour
 	public InputField passwordInput;
 	public GameObject login;
 	public GameObject register;
+	
+	public GameObject loader;
 
 	private const string HOME_SCENE_NAME = "HomeScene";
 
 	void Start()
 	{
 		User.ForgetData();
-		
 		login.SetActive(false);
-		messageText.text = " ";
 	}
 	
 	// ! ----------------
@@ -32,12 +32,14 @@ public class AuthentificationManager : MonoBehaviour
 	{
 		register.SetActive(false);
 		login.SetActive(true);
+		messageText.text = "";
 	}
 
 	public void NotMemberYet()
 	{
 		register.SetActive(true);
 		login.SetActive(false);
+		messageText.text = "";
 	}
 	
 	// ! ----------------
@@ -63,11 +65,12 @@ public class AuthentificationManager : MonoBehaviour
 	}
 	
 	public async void RegisterButton()
-	{
+	{	
 		if (!IsPasswordValid()) return;
 
 		// Enregistrement du joueur via la méthode de l'instance User
 		bool isSuccess = await PlayFabAPI.RegisterUser(usernameInput.text, emailInput.text, passwordInput.text, messageText);
+		loader.SetActive(true);
 		if (isSuccess) PlayFabAPI.GetUserData(() => { SceneManager.LoadSceneAsync(HOME_SCENE_NAME); });
 	} 
 
@@ -75,7 +78,11 @@ public class AuthentificationManager : MonoBehaviour
 	{
 		// Connexion du joueur via la méthode de l'instance User
 		bool isSuccess = await PlayFabAPI.LoginUser(emailInput.text, passwordInput.text, messageText);
-		if (isSuccess) PlayFabAPI.GetUserData(() => { SceneManager.LoadSceneAsync(HOME_SCENE_NAME); });	
+		if (isSuccess) 
+		{
+			loader.SetActive(true);
+			PlayFabAPI.GetUserData(() => { SceneManager.LoadSceneAsync(HOME_SCENE_NAME); });
+		}	
 	}
 
 	public void ResetPasswordButton() {	PlayFabAPI.ResetPassword(emailInput.text, messageText); }
