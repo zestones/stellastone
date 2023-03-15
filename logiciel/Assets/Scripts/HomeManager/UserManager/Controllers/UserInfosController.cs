@@ -19,19 +19,19 @@ public class UserInfosController : MonoBehaviour
 	
 	public void ResetPassword()
 	{
-		User.ResetPassword(User.Email, OnPasswordResetSuccess, OnError);
+		PlayFabAPI.ResetPassword(User.Email, messageText);
 	}
 	
 	public void UpdateUserInfos()
 	{	
 		if (usernameInput.text != User.Username)
 		{
-			User.UpdateUsername(usernameInput.text);
+			PlayFabAPI.UpdateUsername(usernameInput.text);
 		}
 		
 		if (descriptionInput.text != User.Description)
 		{
-			User.UpdateDescription(descriptionInput.text);
+			PlayFabAPI.UpdateDescription(descriptionInput.text);
 		}
 		
 		if (localImagePath != null && localImagePath != User.AvatarUrl) 
@@ -68,24 +68,9 @@ public class UserInfosController : MonoBehaviour
 		// On update l'Utilisateur
 		User.AvatarUrl = localImagePath;
 		User.Avatar = tmpAvatar;
-		// Envoie l'image sélectionnée à PlayFab
-		PlayFabClientAPI.UpdateAvatarUrl(new UpdateAvatarUrlRequest
-		{
-			ImageUrl = localImagePath
-		}, OnUpdateAvatarUrlSuccess, OnUpdateAvatarUrlFailure);
+		
+		PlayFabAPI.UpdateAvatar(User.AvatarUrl);
 	}
-
-
-	private void OnUpdateAvatarUrlSuccess(EmptyResponse response)
-	{   
-		Debug.Log("Avatar URL updated successfully");   
-	}   
-
-	private void OnUpdateAvatarUrlFailure(PlayFabError error)
-	{
-		Debug.LogError("Failed to update avatar URL: " + error.ErrorMessage);
-	}
-	
 	
 	// ! ---- READ IMG AND TRANSFORM IT TO SPRITE ----
 	public static Sprite LoadAvatarFromUrl(string avatarPath)
@@ -99,17 +84,5 @@ public class UserInfosController : MonoBehaviour
 
 		// Création du sprite à partir de la texture
 		return Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.zero);
-	}
-	
-	// ! ------------ ------------
-	
-
-	void OnPasswordResetSuccess(SendAccountRecoveryEmailResult result)
-	{
-		messageText.text = "Email de réinitialisation du mot de passe envoyé.";
-	}
-
-	private void OnError(PlayFabError error){
-		messageText.text = error.GenerateErrorReport();
 	}
 }
