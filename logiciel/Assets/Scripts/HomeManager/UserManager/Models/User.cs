@@ -11,34 +11,26 @@ public static class User
 	public static string username;
 	public static string email;
 	public static string description;
+	
 	public static string avatarUrl;
+	public static Sprite avatar; 
 
-	public static string GetId()
+	public static string Id { get { return id; } }
+	public static string Username { get { return username; } }
+	public static string Email { get { return email; } }
+	public static string Description { get { return description; }	}
+	public static string AvatarUrl 
+	{ 
+		get { return avatarUrl; }
+		set { avatarUrl = value; }
+	}
+	public static Sprite Avatar
 	{
-		return id;
+		get { return avatar; }
+		set { avatar = value; }
 	}
 
-	public static string GetUsername()
-	{
-		return username;
-	}
-
-	public static string GetEmail()
-	{
-		return email;
-	}
-
-
-	public static string GetDescription()
-	{
-		return description;
-	}
-
-	public static string GetAvatarUrl()
-	{
-		return avatarUrl;
-	}
-
+		
 	// Enregistrement du joueur
 	public static void RegisterUser(string username, string email, string password, Action<RegisterPlayFabUserResult> onSuccess, Action<PlayFabError> onError)
 	{
@@ -78,7 +70,7 @@ public static class User
 		PlayFabClientAPI.SendAccountRecoveryEmail(request, OnResetPasswordSuccess, OnError);
 	}
 
-	 public static void UpdateUsername(string newUsername)
+	public static void UpdateUsername(string newUsername)
 	{   
 		username = newUsername;
 		var request = new UpdateUserTitleDisplayNameRequest { DisplayName = newUsername };
