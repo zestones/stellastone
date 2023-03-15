@@ -15,8 +15,6 @@ public class AuthentificationManager : MonoBehaviour
 	public InputField passwordInput;
 	public GameObject login;
 	public GameObject register;
-	public Canvas loader;
-	public Slider slider;
 
 	private const string HOME_SCENE_NAME = "HomeScene";
 
@@ -25,7 +23,6 @@ public class AuthentificationManager : MonoBehaviour
 		User.ForgetData();
 		
 		login.SetActive(false);
-		loader.gameObject.SetActive(false);
 		messageText.text = " ";
 	}
 	
