@@ -10,9 +10,11 @@ public class AuthentificationManager : MonoBehaviour
 {
 	[Header("UI")]
 	public Text messageText;
+	
 	public InputField usernameInput;
 	public InputField emailInput;
 	public InputField passwordInput;
+	
 	public GameObject login;
 	public GameObject register;
 	
@@ -25,25 +27,6 @@ public class AuthentificationManager : MonoBehaviour
 		User.ForgetData();
 		login.SetActive(false);
 	}
-	
-	// ! ----------------
-
-	public void AlreadyMember()
-	{
-		register.SetActive(false);
-		login.SetActive(true);
-		messageText.text = "";
-	}
-
-	public void NotMemberYet()
-	{
-		register.SetActive(true);
-		login.SetActive(false);
-		messageText.text = "";
-	}
-	
-	// ! ----------------
-
 	
 	private bool IsPasswordValid() 
 	{
@@ -68,7 +51,6 @@ public class AuthentificationManager : MonoBehaviour
 	{	
 		if (!IsPasswordValid()) return;
 
-		// Enregistrement du joueur via la méthode de l'instance User
 		bool isSuccess = await PlayFabAPI.RegisterUser(usernameInput.text, emailInput.text, passwordInput.text, messageText);
 		loader.SetActive(true);
 		if (isSuccess) PlayFabAPI.GetUserData(() => { SceneManager.LoadSceneAsync(HOME_SCENE_NAME); });
@@ -76,7 +58,6 @@ public class AuthentificationManager : MonoBehaviour
 
 	public async void LoginButton()
 	{
-		// Connexion du joueur via la méthode de l'instance User
 		bool isSuccess = await PlayFabAPI.LoginUser(emailInput.text, passwordInput.text, messageText);
 		if (isSuccess) 
 		{
@@ -86,4 +67,18 @@ public class AuthentificationManager : MonoBehaviour
 	}
 
 	public void ResetPasswordButton() {	PlayFabAPI.ResetPassword(emailInput.text, messageText); }
+
+	public void AlreadyMember()
+	{
+		register.SetActive(false);
+		login.SetActive(true);
+		messageText.text = "";
+	}
+
+	public void NotMemberYet()
+	{
+		register.SetActive(true);
+		login.SetActive(false);
+		messageText.text = "";
+	}
 }
