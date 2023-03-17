@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class RocketController : MonoBehaviour
 {
@@ -15,18 +17,19 @@ public class RocketController : MonoBehaviour
 	public Button buttonEquiper; // Close modal Bouton
 	public float rotationSpeed = 150f; // Vitesse de rotation de la fusée
 
-	private Dictionary<int, Rocket> rockets; // Dictionnaire contenant les instances de Rocket pour chaque fusée
+	private List<Rocket> rocketsList; // Dictionnaire contenant les instances de Rocket pour chaque fusée
 	private int currentRocketIndex = 0; // Index de la fusée actuellement affichée
 	
 	public GameObject modalRocket;
+	
+	private const string HOME_SCENE_NAME = "HomeScene";
 
 	void Start()
 	{	
-		rockets = new Dictionary<int, Rocket>(); 
-		rockets.Add(0, new Rocket(0, "Saturn V", "A powerful rocket used in the Apollo missions", 1000000, 100, rocketModels[0], rocketsComponents[0]));
-		rockets.Add(1, new Rocket(1, "Falcon Heavy", "A reusable rocket developed by SpaceX", 500000, 90, rocketModels[1], rocketsComponents[1]));
-		rockets.Add(2, new Rocket(2, "Delta IV", "A medium-to-heavy rocket operated by the United Launch Alliance", 3000000, 110, rocketModels[2],rocketsComponents[2]));
-
+		RocketInitializer ri = new RocketInitializer();
+		ri.Init(rocketModels, rocketsComponents);
+		rocketsList = ri.rocketList;
+		
 		// Ajoute les evenemets aux fleches
 		leftArrowButton.GetComponent<Button>().onClick.AddListener(OnLeftArrowButtonClick);
 		rightArrowButton.GetComponent<Button>().onClick.AddListener(OnRightArrowButtonClick);
@@ -41,47 +44,45 @@ public class RocketController : MonoBehaviour
 
 	void Update()
 	{
-		List<Rocket> rocketList = new List<Rocket>(rockets.Values);
-		rocketList[currentRocketIndex].Model.transform.Rotate(0f, rotationSpeed * Time.deltaTime, 0f);
+		rocketsList[currentRocketIndex].Model.transform.Rotate(0f, rotationSpeed * Time.deltaTime, 0f);
 	}
 	
 	// On ajoute les liteners aux fusees
 	private void AddRocketsEventListeners() 
 	{
-		foreach (var rocket in rockets)
+		foreach (var rocket in rocketsList)
 		{
-			int index = rocket.Key;
-			Rocket value = rocket.Value;
+			int index = rocket.Id;
 
 			// Ajoute un événement de clic à chaque modèle de fusée
-			Collider collider = value.Model.GetComponent<Collider>();
+			Collider collider = rocket.Model.GetComponent<Collider>();
 			if (collider != null)
 			{
 				collider.gameObject.AddComponent<RocketEvents>().OnClick += () =>
 				{
 					// Affiche le GameObject "modalRocket" et met à jour son texte
 					modalRocket.SetActive(true);
-					UpdateModalContent(value);
+					UpdateModalContent(rocket);
 				};
 			}
 
-			Button button = value.Image.gameObject.GetComponent<Button>();
+			Button button = rocket.Image.gameObject.GetComponent<Button>();
 			if (button != null)
 			{   
 				button.onClick.AddListener(() => {
 					currentRocketIndex = index;
-					OnButtonClick(value);});
+					OnButtonClick(rocket);});
 			}
 		}
 	}
 
 	private void OnButtonClick(Rocket rocket)
-    {	
+	{	
 		
-        modalRocket.SetActive(true);
+		modalRocket.SetActive(true);
 		UpdateModalContent(rocket);
 		UpdateRocketDisplay();
-    }
+	}
 	
 	// Affiche la fusée correspondant à l'index donné
 	private void DisplayRocket(int index)
@@ -93,21 +94,20 @@ public class RocketController : MonoBehaviour
 	// Affiche la fusée actuellement sélectionnée
 	private void UpdateRocketDisplay()
 	{
-		List<Rocket> rocketList = new List<Rocket>(rockets.Values);
 		// Désactive tous les modèles de fusée
-		foreach (Rocket r in rocketList)
+		foreach (Rocket r in rocketsList)
 		{
 			r.Model.SetActive(false);
 			r.SelectedBackground.gameObject.SetActive(false);
-			if(!(r.Equals(rocketList[currentRocketIndex]))) {
+			if(!(r.Equals(rocketsList[currentRocketIndex]))) {
 				r.UnselectedBackground.gameObject.SetActive(true);
 			}
 			else{
 				r.UnselectedBackground.gameObject.SetActive(false);
 			}
 		}
-		rocketList[currentRocketIndex].SelectedBackground.gameObject.SetActive(true);
-        rocketList[currentRocketIndex].Model.SetActive(true);
+		rocketsList[currentRocketIndex].SelectedBackground.gameObject.SetActive(true);
+		rocketsList[currentRocketIndex].Model.SetActive(true);
 		
 	}
 	
@@ -125,10 +125,10 @@ public class RocketController : MonoBehaviour
 		currentRocketIndex--;
 		if (currentRocketIndex < 0)
 		{
-			currentRocketIndex = rockets.Count - 1;
+			currentRocketIndex = rocketsList.Count - 1;
 		}
 
-		UpdateModalContent(rockets[currentRocketIndex]);
+		UpdateModalContent(rocketsList[currentRocketIndex]);
 		UpdateRocketDisplay();		
 	}
 
@@ -136,19 +136,19 @@ public class RocketController : MonoBehaviour
 	public void OnRightArrowButtonClick()
 	{
 		currentRocketIndex++;
-		if (currentRocketIndex >= rockets.Count)
+		if (currentRocketIndex >= rocketsList.Count)
 		{
 			currentRocketIndex = 0;
 		}
 
-		UpdateModalContent(rockets[currentRocketIndex]);
+		UpdateModalContent(rocketsList[currentRocketIndex]);
 		UpdateRocketDisplay();
 	}
 
 	public void OnEquiperButtonClick()
-	{	List<Rocket> rocketList = new List<Rocket>(rockets.Values);
-		User.Rocket = rocketList[currentRocketIndex];
-		Debug.Log(User.Rocket.Name);
+	{	
+		User.Rocket = rocketsList[currentRocketIndex];
+		// SceneManager.LoadSceneAsync(HOME_SCENE_NAME);
 	}
 	
 	void OnCloseModalButtonClick()
