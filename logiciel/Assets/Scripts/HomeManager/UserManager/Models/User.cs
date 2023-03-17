@@ -14,7 +14,7 @@ public static class User
 	
 	private static string avatarUrl;
 	private static Sprite avatar; 
-
+	private static Rocket rocket;
 	public static string Id
 	{
 		get { return id; }
@@ -49,6 +49,12 @@ public static class User
 		get { return avatar; }
 		set { avatar = value; }
 	}
+
+	public static Rocket Rocket
+	{
+		get { return rocket; }
+		set { rocket = value; }
+	}
 	
 	public static void ForgetData() 
 	{
@@ -58,5 +64,6 @@ public static class User
 		Description = null;
 		AvatarUrl = null;
 		Avatar = null;
+		rocket = null;
 	}
 }

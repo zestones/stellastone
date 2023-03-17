@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Rocket
 {
+    public int Id { get; set;}
     public string Name { get; set; }
     public string Description { get; set; }
     public int Cost { get; set; }
@@ -16,8 +17,9 @@ public class Rocket
     public Image SelectedBackground { get; set; }
 
     public Image Image { get; set; }
-    public Rocket(string name, string description, int cost, int power, GameObject model, GameObject component)
+    public Rocket(int id, string name, string description, int cost, int power, GameObject model, GameObject component)
     {
+        Id = id;
         Name = name;
         Description = description;
         Cost = cost;

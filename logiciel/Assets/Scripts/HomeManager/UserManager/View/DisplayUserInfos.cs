@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class DisplayUserInfos : MonoBehaviour
 {
 	[SerializeField] private GameObject userObject;
-
+	
 	private static Text usernameText, descriptionText;
 	private static Image avatarImage;
 	
