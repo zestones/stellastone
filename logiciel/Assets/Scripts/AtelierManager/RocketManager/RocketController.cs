@@ -148,7 +148,7 @@ public class RocketController : MonoBehaviour
 	public void OnEquiperButtonClick()
 	{	
 		User.Rocket = rocketsList[currentRocketIndex];
-		// SceneManager.LoadSceneAsync(HOME_SCENE_NAME);
+		SceneManager.LoadSceneAsync(HOME_SCENE_NAME);
 	}
 	
 	void OnCloseModalButtonClick()
