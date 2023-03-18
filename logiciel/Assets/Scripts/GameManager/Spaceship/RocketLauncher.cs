@@ -3,39 +3,67 @@ using TMPro;
 
 public class RocketLauncher : MonoBehaviour
 {
-    public Rigidbody rocket;
-    public float launchForce = 100f;
-    public float fuel = 1000f;
-    public ParticleSystem fireParticles;
-    public ParticleSystem smokeParticles;
-    
-    public TextMeshProUGUI speedText;
-    public TextMeshProUGUI altitudeText;
+	public Rigidbody rocket;
+	public ParticleSystem fireParticles;
+	public ParticleSystem smokeParticles;
+	public TextMeshProUGUI speedText;
+	public TextMeshProUGUI altitudeText;
 
-    void Start()
-    {
-        rocket.collisionDetectionMode = CollisionDetectionMode.Continuous;
-        fireParticles.Stop();
-        smokeParticles.Stop();
-    }
+	private float fuel = 1000f;
+	private float chosenSpeed = 10f;
 
-    void Update()
-    {
-        speedText.text = rocket.velocity.magnitude.ToString("0");
-        altitudeText.text = transform.position.y.ToString("0");
+	private float launchTime = 0f; // temps écoulé depuis le début du décollage
+	private float launchDuration = 20f; // durée du décollage en secondes
 
-        if (Input.GetKey(KeyCode.Space) && fuel > 0)
-        {
-            rocket.AddRelativeForce(Vector3.up * launchForce, ForceMode.Acceleration);
-            fuel -= Time.deltaTime;
-            fireParticles.Play();
-            smokeParticles.Play();
-        }
-        else if (fuel <= 0)
-        {
-            rocket.AddForce(Physics.gravity * rocket.mass);
-            fireParticles.Stop();
-            smokeParticles.Stop();
-        }
-    }
+	private float initialAcceleration = 0f; // accélération initiale
+	private float finalAcceleration = 1000f; // accélération finale
+
+	private float maxVelocity = 1000f; // vitesse maximale à atteindre
+	private float velocityExponent = 0.1f; // facteur d'ajustement de la loi exponentielle
+
+	void Start()
+	{
+		rocket.collisionDetectionMode = CollisionDetectionMode.Continuous;
+		fireParticles.Stop();
+		smokeParticles.Stop();
+	}
+
+	void Update()
+	{
+		if (Input.GetKey(KeyCode.Space) && fuel > 0)
+		{
+			launchTime += Time.deltaTime;
+			float acceleration = Mathf.Lerp(initialAcceleration, finalAcceleration, launchTime / launchDuration);
+			rocket.AddRelativeForce(Vector3.up * acceleration, ForceMode.Acceleration);
+
+			fuel -= Time.deltaTime;
+			fireParticles.Play();
+			smokeParticles.Play();
+		}
+		else if (fuel <= 0)
+		{
+			rocket.AddForce(Physics.gravity * rocket.mass);
+			fireParticles.Stop();
+			smokeParticles.Stop();
+		}
+
+		// Ajouter de la résistance à l'air
+		float speed = rocket.velocity.magnitude;
+		Vector3 drag = -speed * speed * rocket.velocity.normalized * 0.1f; // Modifiez 0.1f pour ajuster la force de traînée
+		rocket.AddForce(drag, ForceMode.Force);
+
+		// Calculer la vitesse et l'altitude pour affichage dans le jeu
+		float speedMS = Mathf.Min(speed, GetMaxVelocity()); // limiter la vitesse à la valeur maximale
+		float altitudeM = rocket.position.y;
+		speedText.text = (speedMS * chosenSpeed).ToString("0");
+		altitudeText.text = (altitudeM / 10f).ToString("0.0");
+	}
+
+	private float GetMaxVelocity()
+	{
+		// Fonction exponentielle inversée pour modéliser la relation entre la vitesse et le temps
+		float timeRatio = Mathf.Clamp01(launchTime / launchDuration);
+		float maxVelocityRatio = Mathf.Exp(timeRatio * velocityExponent);
+		return maxVelocityRatio * maxVelocity;
+	}
 }
