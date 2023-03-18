@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+using UnityEngine; 
 
 public class SideMenuController : MonoBehaviour
 {
    public GameObject Panel;
-   
    public void OpenPanel() 
    {
 		if (Panel != null) 
