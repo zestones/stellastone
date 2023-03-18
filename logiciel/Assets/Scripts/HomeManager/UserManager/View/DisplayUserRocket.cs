@@ -24,8 +24,10 @@ public class DisplayUserRocket : MonoBehaviour {
     }
 
     void Update(){
+        if(User.Rocket != null){
         int id = User.Rocket.Id;
         rocketModels[id].transform.Rotate(0f, rotationSpeed * Time.deltaTime, 0f);
+        }
     }
     void OnNewMissionClick()
     {

@@ -17,7 +17,7 @@ public class Rocket
     public float Height { get; set; }
     public float Diameter { get; set; }
     public string Country { get; set; }
-
+	public Mission mission { get; set; }
     public GameObject Model { get; set; }
 
     public Image UnselectedBackground { get; set; }
