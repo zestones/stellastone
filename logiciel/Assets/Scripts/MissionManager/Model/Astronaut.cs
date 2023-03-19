@@ -9,8 +9,8 @@ public class Astronaut
     public int Age { get; set; }
     public double Weight { get; set; }
     public double Height { get; set; }
-    public Texture2D Image { get; set; }
-    public Astronaut(string id, string name, string nationality, int age, double weight, double height, Texture2D image)
+    public Sprite Image { get; set; }
+    public Astronaut(string id, string name, string nationality, int age, double weight, double height, Sprite image)
     {
         Id = id;
         Name = name;

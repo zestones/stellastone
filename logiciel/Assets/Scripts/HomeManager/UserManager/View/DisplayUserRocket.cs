@@ -16,7 +16,6 @@ public class DisplayUserRocket : MonoBehaviour {
             rocketModels[id].SetActive(true);
         }
         else {
-            
             newUserInterface.SetActive(true);
             Button newMissionButton = GameObject.Find("NewMissionButton").GetComponent<Button>();
             newMissionButton.onClick.AddListener(OnNewMissionClick);
