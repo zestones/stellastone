@@ -11637,7 +11637,7 @@ MonoBehaviour:
   attachedObject: {fileID: 919132148492677202}
   rotationSpeed: 20
   distance: 75
-  numberRotation: 2
+  numberRotation: 1
   mainCamera: {fileID: 908425647}
 --- !u!33 &91802387694089099
 MeshFilter:
