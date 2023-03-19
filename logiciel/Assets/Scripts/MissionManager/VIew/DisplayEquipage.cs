@@ -8,11 +8,9 @@ public class DisplayEquipage : MonoBehaviour
     public GameObject astronautCardPrefab; // le préfab de la carte d'astronaute
     public GameObject Equipage;
     public GameObject EquipageCards;
-    private Button equipageButton,closeButton;
+    private Button closeButton;
     void Start(){
         Equipage.SetActive(false);
-        equipageButton = GameObject.Find("EquipageButton").GetComponent<Button>();
-        equipageButton.onClick.AddListener(OnEquipageButtonClick);
         DisplayCards();
     }
 
@@ -36,6 +34,8 @@ public class DisplayEquipage : MonoBehaviour
                 // Assigne le nouveau sprite à l'image de la carte d'astronaute
                 Debug.Log(User.Rocket.mission.Astronauts[0].Image);
                 astronautCard.transform.Find("Picture").GetComponent<Image>().sprite = astronaut.Image;
+                string flag = "Images/" + astronauts[i].Nationality;
+                astronautCard.transform.Find("Flag").GetComponent<Image>().sprite = Resources.Load<Sprite>(flag);
                 }
                 
             }

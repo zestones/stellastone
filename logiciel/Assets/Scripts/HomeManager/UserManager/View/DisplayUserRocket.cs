@@ -7,6 +7,7 @@ public class DisplayUserRocket : MonoBehaviour {
     public List<GameObject> rocketModels;
     private const string ATELIER_SCENE_NAME = "AtelierScene";
     public float rotationSpeed = 150f; // Vitesse de rotation de la fusée
+    private const int ID_DELTA_IV = 2;
     void Start() {
         GameObject newUserInterface = GameObject.Find("NewUserInterface");
 
@@ -25,7 +26,13 @@ public class DisplayUserRocket : MonoBehaviour {
     void Update(){
         if(User.Rocket != null){
         int id = User.Rocket.Id;
+        if (User.Rocket.Id == ID_DELTA_IV) 
+        {
+            rocketModels[id].transform.Rotate(0f,  0f , rotationSpeed * Time.deltaTime);
+        }
+        else {
         rocketModels[id].transform.Rotate(0f, rotationSpeed * Time.deltaTime, 0f);
+        }
         }
     }
     void OnNewMissionClick()
