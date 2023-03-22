@@ -12,5 +12,4 @@ public class MissionController : MonoBehaviour
         mi.Init(); 
         missionsList = mi.missionList;
     }
-
 }

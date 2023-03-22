@@ -11,7 +11,6 @@ public class RocketInitializer
 	{		
 		MissionInitializer mi = new MissionInitializer();
 		mi.Init();
-		Debug.Log(mi.missionList[0].Name);
 		Rocket saturn_V = new Rocket(0, "Saturn V");
 		saturn_V.Description = "A powerful rocket used in the Apollo missions";
 		saturn_V.Cost = 185000000;
@@ -25,7 +24,6 @@ public class RocketInitializer
 		saturn_V.Thrust= 35.10f;
 		saturn_V.Model = rocketModels[saturn_V.Id];
 		saturn_V.mission = mi.missionList[0];
-		Debug.Log(saturn_V.Id);
 		saturn_V.Initialize(rocketsComponents[saturn_V.Id]);
 		rocketList.Add(saturn_V);
 
@@ -60,10 +58,5 @@ public class RocketInitializer
 		delta_IV.mission = mi.missionList[0];
 		delta_IV.Initialize(rocketsComponents[delta_IV.Id]);
 		rocketList.Add(delta_IV);
-
-		
-		
-		
-
 	}	
 }

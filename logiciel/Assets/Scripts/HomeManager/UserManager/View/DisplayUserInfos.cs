@@ -1,16 +1,20 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class DisplayUserInfos : MonoBehaviour
 {
 	[SerializeField] private GameObject userObject;
-    [SerializeField] private GameObject rocketInfos;
+	[SerializeField] private GameObject rocketInfos;
+	
 	private static Text usernameText, descriptionText;
 	private static Image avatarImage;
 	
 	private const string USERNAME = "username";
 	private const string AVATAR = "avatar";
 	private const string DESCRIPTION = "description";
+	private const string HOME_SCENE_NAME = "HomeScene";
 	
 	void Start()
 	{
@@ -35,11 +39,11 @@ public class DisplayUserInfos : MonoBehaviour
 		}
 		
 		SetUserInfos();
-		if (User.Rocket!=null) {
-		DisplayRocketsInfos();
-		}
-		else{
-			rocketInfos.SetActive(false);
+		
+		if (SceneManager.GetActiveScene().name == HOME_SCENE_NAME) 
+		{
+			if (User.Rocket!=null) DisplayRocketsInfos();
+			else rocketInfos.SetActive(false);
 		}
 	}
 
@@ -105,5 +109,5 @@ public class DisplayUserInfos : MonoBehaviour
 		Text fuelCapacityValue = fuelCapacity.transform.Find("Text").GetComponent<Text>();
 		fuelCapacity.value = User.Rocket.FuelCapacity;
 		fuelCapacityValue.text = "Réservoirs: " + User.Rocket.FuelCapacity + " L";
-    }
+	}
 }
