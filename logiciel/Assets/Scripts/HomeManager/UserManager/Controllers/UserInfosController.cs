@@ -44,17 +44,19 @@ public class UserInfosController : MonoBehaviour
 
 	public void OpenWindowChangeAvatar()
 	{
-		// Ouvre la boîte de dialogue de sélection de fichiers
-		string filePath = UnityEditor.EditorUtility.OpenFilePanel("Select image file", "", "png, jpg, jpeg");
+		#if UNITY_EDITOR
+			string filePath = UnityEditor.EditorUtility.OpenFilePanel("Select image file", "", "png, jpg, jpeg");
+		
 
-		if (!string.IsNullOrEmpty(filePath))
-		{
-			// Stocke le chemin d'accès local du fichier sélectionné
-			localImagePath = filePath;
-			// Affiche l'image sélectionnée
-			tmpAvatar = LoadAvatarFromUrl(filePath);
-			DisplayUserInfos.SetUserInfos(tmpAvatar);
-		}
+			if (!string.IsNullOrEmpty(filePath))
+			{
+				// Stocke le chemin d'accès local du fichier sélectionné
+				localImagePath = filePath;
+				// Affiche l'image sélectionnée
+				tmpAvatar = LoadAvatarFromUrl(localImagePath);
+				DisplayUserInfos.SetUserInfos(tmpAvatar);
+			}
+		#endif
 	}
 	
 	public void UpdateAvatar()

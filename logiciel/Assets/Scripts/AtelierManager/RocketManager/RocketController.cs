@@ -23,6 +23,7 @@ public class RocketController : MonoBehaviour
 	public GameObject modalRocket;
 	
 	private const string HOME_SCENE_NAME = "HomeScene";
+	private const int ID_DELTA_IV = 2;
 
 	void Start()
 	{	
@@ -43,8 +44,15 @@ public class RocketController : MonoBehaviour
 	}
 
 	void Update()
-	{
-		rocketsList[currentRocketIndex].Model.transform.Rotate(0f, rotationSpeed * Time.deltaTime, 0f);
+	{	
+		if(currentRocketIndex == ID_DELTA_IV)
+		{
+			rocketsList[currentRocketIndex].Model.transform.Rotate(0f, 0f , rotationSpeed * Time.deltaTime);
+		} 
+		else 
+		{
+			rocketsList[currentRocketIndex].Model.transform.Rotate(0f, rotationSpeed * Time.deltaTime, 0f);
+		}
 	}
 	
 	// On ajoute les liteners aux fusees
@@ -148,7 +156,7 @@ public class RocketController : MonoBehaviour
 	public void OnEquiperButtonClick()
 	{	
 		User.Rocket = rocketsList[currentRocketIndex];
-		// SceneManager.LoadSceneAsync(HOME_SCENE_NAME);
+		SceneManager.LoadSceneAsync(HOME_SCENE_NAME);
 	}
 	
 	void OnCloseModalButtonClick()
