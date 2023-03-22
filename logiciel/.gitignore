@@ -123,3 +123,5 @@ $RECYCLE.BIN/
 # End of https://www.toptal.com/developers/gitignore/api/windows,visualstudiocode,unity
 
 # Custom rules (everything added below won't be overriden by 'Generate .gitignore File' if you use 'Update' option)
+Assets/Materials/StarSkybox04/CubemapStars.cubemap
+Assets/Materials/StarSkybox04Named/CubemapStarsNamed.cubemap
