@@ -4031,5 +4031,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: LoadingCircle
       objectReference: {fileID: 0}
+    - target: {fileID: 6711599714425025330, guid: 04e369bd08c72f44b9e932c865056c8d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04e369bd08c72f44b9e932c865056c8d, type: 3}
