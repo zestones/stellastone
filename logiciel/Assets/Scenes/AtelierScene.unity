@@ -524,13 +524,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rocketModels:
-  - {fileID: 132489013}
-  - {fileID: 433493656}
   - {fileID: 1288540872}
+  - {fileID: 433493656}
+  - {fileID: 132489013}
   rocketsComponents:
-  - {fileID: 1803412466}
-  - {fileID: 133684640}
   - {fileID: 1430294750}
+  - {fileID: 133684640}
+  - {fileID: 1803412466}
   leftArrowButton: {fileID: 557063089}
   rightArrowButton: {fileID: 2069513831}
   modalCloseButton: {fileID: 1256025795}
@@ -2270,7 +2270,7 @@ RectTransform:
   - {fileID: 1951241402}
   - {fileID: 1902609349}
   m_Father: {fileID: 2144452838}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3072,7 +3072,7 @@ RectTransform:
   - {fileID: 548307188}
   - {fileID: 1043957556}
   m_Father: {fileID: 2144452838}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3587,9 +3587,9 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1803412467}
-  - {fileID: 133684641}
   - {fileID: 1430294751}
+  - {fileID: 133684641}
+  - {fileID: 1803412467}
   m_Father: {fileID: 2144964332}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

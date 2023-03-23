@@ -1,5 +1,7 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
+
 
 public class RocketLauncher : MonoBehaviour
 {
@@ -8,6 +10,8 @@ public class RocketLauncher : MonoBehaviour
 	public ParticleSystem smokeParticles;
 	public TextMeshProUGUI speedText;
 	public TextMeshProUGUI altitudeText;
+	
+	public GameObject rocketModels;
 
 	private float fuel = 1000f;
 	private float chosenSpeed = 10f;
@@ -20,10 +24,17 @@ public class RocketLauncher : MonoBehaviour
 
 	private float maxVelocity = 1000f; // vitesse maximale à atteindre
 	private float velocityExponent = 0.1f; // facteur d'ajustement de la loi exponentielle
+	private const string SPACE_SCENE_NAME = "SpaceScene";
+	private const float launchAltitude = 1000f;
+	
+	private GameObject rocketModel;
 
 	void Start()
 	{
 		rocket.collisionDetectionMode = CollisionDetectionMode.Continuous;
+		rocketModel = rocketModels.transform.GetChild(User.Rocket.Id).gameObject;
+		rocketModel.SetActive(true);
+		
 		fireParticles.Stop();
 		smokeParticles.Stop();
 	}
@@ -47,6 +58,12 @@ public class RocketLauncher : MonoBehaviour
 			smokeParticles.Stop();
 		}
 
+		if (rocketModel.transform.position.y > launchAltitude)
+		{
+			SceneManager.LoadScene(SPACE_SCENE_NAME);
+		}
+
+		
 		// Ajouter de la résistance à l'air
 		float speed = rocket.velocity.magnitude;
 		Vector3 drag = -speed * speed * rocket.velocity.normalized * 0.1f; // Modifiez 0.1f pour ajuster la force de traînée

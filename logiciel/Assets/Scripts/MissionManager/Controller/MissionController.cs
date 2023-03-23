@@ -6,10 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class MissionController : MonoBehaviour
 {
-    public List<Mission> missionsList = new List<Mission>();
-    void Start(){
-        MissionInitializer mi = new MissionInitializer();
-        mi.Init(); 
-        missionsList = mi.missionList;
-    }
+	public List<Mission> missionsList = new List<Mission>();
+	void Start()
+	{
+		MissionInitializer mi = new MissionInitializer();
+		mi.Init(); 
+		missionsList = mi.missionList;
+	}
 }

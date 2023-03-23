@@ -1075,11 +1075,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 490552907}
   m_CullTransparentMesh: 1
---- !u!1 &509464600 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 620075322828878086, guid: a9af3c879096a49fa81aad1ead4d70d7, type: 3}
-  m_PrefabInstance: {fileID: 2030837376}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &514153067 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3811667950904477999, guid: 09c551be5d583c54cb66ee5bb296bef1, type: 3}
@@ -2153,11 +2148,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 729453931}
   m_CullTransparentMesh: 1
---- !u!1 &848615202 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7549075206995184869, guid: a9af3c879096a49fa81aad1ead4d70d7, type: 3}
-  m_PrefabInstance: {fileID: 2030837376}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &866295445
 GameObject:
   m_ObjectHideFlags: 0
@@ -2667,6 +2657,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 979418537}
   m_CullTransparentMesh: 1
+--- !u!1 &987464495 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7206562281422207603, guid: a9af3c879096a49fa81aad1ead4d70d7, type: 3}
+  m_PrefabInstance: {fileID: 2030837376}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &998975872
 GameObject:
   m_ObjectHideFlags: 0
@@ -3936,11 +3931,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1489209206}
   m_CullTransparentMesh: 1
---- !u!1 &1493115751 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7549075205624112794, guid: a9af3c879096a49fa81aad1ead4d70d7, type: 3}
-  m_PrefabInstance: {fileID: 2030837376}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1541854200
 GameObject:
   m_ObjectHideFlags: 0
@@ -5232,10 +5222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9297dbfa142e806dfb81b2a7627d6236, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rocketModels:
-  - {fileID: 848615202}
-  - {fileID: 1493115751}
-  - {fileID: 509464600}
+  rocketModels: {fileID: 987464495}
   rotationSpeed: 150
 --- !u!1 &2023819831
 GameObject:
