@@ -13,7 +13,6 @@ public class RocketLauncher : MonoBehaviour
 	public GameObject rocketModels;
 
 	private float fuel; // quantity of fuel left in the tank
-	private float chosenSpeed = 0.001f; // factor to multiply the max velocity by
 
 	private float launchTime = 0f; // time since launch in seconds
 	private float launchDuration = 30f; // duration of the launch in seconds
@@ -21,7 +20,6 @@ public class RocketLauncher : MonoBehaviour
 	private float initialAcceleration = 0f; // initial acceleration
 	private float finalAcceleration; // final acceleration
 
-	private float maxVelocity; // maximum velocity of the rocket in m/s
 	private const string SPACE_SCENE_NAME = "SpaceScene"; // name of the scene to load when the rocket reaches the launch altitude
 	private const float launchAltitude = 1000f; // altitude at which the rocket will be launched in meters
 
@@ -45,8 +43,7 @@ public class RocketLauncher : MonoBehaviour
 		rocket.collisionDetectionMode = CollisionDetectionMode.Continuous;
 		rocketModel = rocketModels.transform.GetChild(User.Rocket.Id).gameObject;
 		rocketModel.SetActive(true);
-
-		maxVelocity = User.Rocket.Velocity / chosenSpeed;
+		
 		// Unity uses SI units, and the force is in Newtons, so we need to convert it to kN
 		finalAcceleration = User.Rocket.Thrust * 1000000f / ROCKET_MASS;
 		fuel = User.Rocket.FuelCapacity;
@@ -59,17 +56,16 @@ public class RocketLauncher : MonoBehaviour
 	{	
 		if (Input.GetKey(KeyCode.Space) && fuel > 0)
 		{
-			launchTime += Time.deltaTime;
-			// calculate the current acceleration
-			float currentAcceleration = Mathf.Lerp(initialAcceleration, finalAcceleration, launchTime / launchDuration);			
+			launchTime += Time.deltaTime; // increment the launch time
+			float currentAcceleration = Mathf.Lerp(initialAcceleration, finalAcceleration, launchTime / launchDuration); // in m/s^2  		
 			rocket.AddRelativeForce(Vector3.up * currentAcceleration, ForceMode.Acceleration); // add the force to the rocket
 			
 			float fuelConsumption = FUEL_CONSUMPTION_RATE * Time.deltaTime; // L/s * s = L = kg / FUEL_DENSITY = kg of fuel consumed in this frame
 			float massLoss = fuelConsumption * FUEL_DENSITY; // kg of fuel consumed in this frame * kg/L = kg of fuel consumed in this frame
 			
 			// Update the rocket mass and fuel remaining
-			fuel -= fuelConsumption;
-			ROCKET_MASS -= massLoss;
+			fuel -= fuelConsumption; 
+			ROCKET_MASS -= massLoss; 
 	
 			fireParticles.Play();
 			smokeParticles.Play();
@@ -86,19 +82,27 @@ public class RocketLauncher : MonoBehaviour
 			smokeParticles.Stop();
 		}
 
+		// Change the Scene when the rocket reaches the limit altitude
 		if (rocketModel.transform.position.y > launchAltitude) SceneManager.LoadScene(SPACE_SCENE_NAME);
 
-		// Ajouter de la résistance à l'air
-		float speed = rocket.velocity.magnitude;
+		float speed = rocket.velocity.magnitude; // in m/s 
+		// The drag force is proportional to the square of the speed
 		Vector3 drag = Mathf.Pow(speed, 2) * 0.5f * AIR_DENSITY * ROCKET_DRAG_COEFFICIENT * defaultCrossSectionalArea * -rocket.velocity.normalized;
 
 		rocket.AddForce(drag, ForceMode.Force);
 		
-		// Calculer la vitesse et l'altitude pour affichage dans le jeu
-		float speedMS = Mathf.Min(speed, User.Rocket.Velocity) / 10f; // limiter la vitesse à la valeur maximale et mettre à l'échelle pour éviter des valeurs trop grandes
-		float altitudeM = rocket.position.y - User.Rocket.Height; // déduire la hauteur initiale pour obtenir l'altitude par rapport au sol
-		speedText.text = speedMS.ToString("0.0") + " m/s";
-		altitudeText.text = altitudeM.ToString("0.0") + " m";
+		// Compute the rocket's speed and altitude
+		// We divide by 10 because the rocket's velocity is in m/s, but the speed is in km/h
+		float speedMS = Mathf.Min(speed, User.Rocket.Velocity) / 10f; // limit the speed to the maximum allowed
+		float altitudeM = rocket.position.y; // deduce the altitude from the rocket's position
+		
+		// Convert speed and altitude to km/h and km
+		float speedKMH = speedMS * 3.6f * 100f;
+		float altitudeKM = altitudeM / 10f;
+								
+		// display the real speed and altitude of the rocket on the screen
+		speedText.text = speedKMH.ToString("0.0");
+		altitudeText.text = altitudeKM.ToString("0.0");
 
 		// Compute rocket mass and thrust based on fuel remaining
 		float mass = User.Rocket.PayloadMass + fuel * User.Rocket.FuelDensity; // compute rocket mass based on fuel remaining
