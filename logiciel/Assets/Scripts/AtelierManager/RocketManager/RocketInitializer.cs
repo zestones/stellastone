@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
+
 public class RocketInitializer
 {
 	public List<Rocket> rocketList = new List<Rocket>();
@@ -18,11 +19,13 @@ public class RocketInitializer
 		delta_IV.Power = 4;
 		delta_IV.Velocity = 11000;
 		delta_IV.FuelCapacity = 465500;
+		delta_IV.FuelDensity = 0.07f;
 		delta_IV.Height = 63.4f;
 		delta_IV.Diameter = 5.1f;
 		delta_IV.Country = "USA";
 		delta_IV.PayloadMass = 13150;
 		delta_IV.Thrust = 7.3f;
+		delta_IV.MaxAcceleration = 5.0f;
 		delta_IV.Model = rocketModels[delta_IV.Id];
 		delta_IV.mission = mi.missionList[0];
 		delta_IV.Initialize(rocketsComponents[delta_IV.Id]);
@@ -34,6 +37,8 @@ public class RocketInitializer
 		falcon_heavy.Power = 140;
 		falcon_heavy.Velocity = 9667;
 		falcon_heavy.FuelCapacity = 202800;
+		falcon_heavy.FuelDensity = 0.81f;
+		falcon_heavy.MaxAcceleration = 5.1f;
 		falcon_heavy.Height = 70f;
 		falcon_heavy.Diameter = 12.2f;
 		falcon_heavy.Country = "USA";
@@ -50,6 +55,8 @@ public class RocketInitializer
 		saturn_V.Power = 34;
 		saturn_V.Velocity = 11186;
 		saturn_V.FuelCapacity = 1036000;
+		saturn_V.FuelDensity = 0.81f;
+		saturn_V.MaxAcceleration = 4.5f;
 		saturn_V.Height = 110.6f;
 		saturn_V.Diameter = 10.1f;
 		saturn_V.Country = "USA";
