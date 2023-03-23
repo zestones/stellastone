@@ -53,6 +53,6 @@ public class DisplayMissionInfos : MonoBehaviour
         descriptionText.text =User.Rocket.mission.Description;
         launchDateText.text = User.Rocket.mission.LaunchDate;
         destinationText.text = User.Rocket.mission.Destination;
-        destinationDistanceText.text = User.Rocket.mission.DestinationDistance.ToString();
+        destinationDistanceText.text = User.Rocket.mission.DestinationDistance.ToString("0 Km");
     }
 }

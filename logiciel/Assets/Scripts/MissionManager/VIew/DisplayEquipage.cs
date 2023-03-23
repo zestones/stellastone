@@ -32,8 +32,8 @@ public class DisplayEquipage : MonoBehaviour
 				// Remplir les informations de la carte d'astronaute
 				Astronaut astronaut = astronauts[i];
 				astronautCard.transform.Find("Name").GetComponent<Text>().text = astronaut.Name;
-				astronautCard.transform.Find("Weight").GetComponent<Text>().text = astronaut.Weight.ToString();
-				astronautCard.transform.Find("Height").GetComponent<Text>().text = astronaut.Height.ToString();
+				astronautCard.transform.Find("Weight").GetComponent<Text>().text = astronaut.Weight.ToString("0.0 Kg");
+				astronautCard.transform.Find("Height").GetComponent<Text>().text = astronaut.Height.ToString("0.0 M");
 				
 				// Créez un nouveau sprite à partir de la texture de l'astronaute
 				// Assigne le nouveau sprite à l'image de la carte d'astronaute
