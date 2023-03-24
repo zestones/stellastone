@@ -14,6 +14,8 @@ public class CameraController : MonoBehaviour
 	private float yaw = 0.0f;
 	private float pitch = 0.0f;
 	private bool isShiftPressed = false;
+	
+	private GameObject clickedObject;
 
 	void Start()
 	{
@@ -41,6 +43,26 @@ public class CameraController : MonoBehaviour
 
 			transform.eulerAngles = new Vector3(pitch, yaw, 0.0f);
 		}
+		else 
+		{
+			// Fix the camera position and enbale click on object
+			if (Input.GetMouseButtonDown(0)) {
+				RaycastHit hit;
+				Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+				if (Physics.Raycast(ray, out hit)) {
+					clickedObject = hit.transform.gameObject;
+					ShowModal();
+				}
+			}
+		}
+	}
+	
+	private void ShowModal()
+	{
+		GameObject modalObject = GameObject.Find("Dashboard UI/Canvas/ObjectModalDetails");
+		GameObjectModal modal = modalObject.GetComponent<GameObjectModal>();
+
+		if (clickedObject != null) modal.ShowModal(clickedObject);
 	}
 
 	void LateUpdate()
