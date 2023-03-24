@@ -3,7 +3,7 @@ using UnityEngine;
 public class SpaceshipMovement : MonoBehaviour
 {
 	public GameObject moon;
-	public GameObject rocket;
+	public GameObject rocketModels;
 	public float baseSpeed = 5.0f;
 	
 	public float avoidDistance = 100.0f;
@@ -12,9 +12,16 @@ public class SpaceshipMovement : MonoBehaviour
 	public float avoidSpeedMultiplier = 0.5f; // Multiplicateur de vitesse lors de l'évitement
 	public float rotationSpeed = 10.0f;
 
-
+	private GameObject rocket; // Choosed rocket
 	private Vector3 avoidTarget; // Destination évitement
 	private bool isAvoiding = false; // Indique si la fusée est en train d'éviter un objet
+	
+	void Start()
+	{
+		rocket = rocketModels.transform.GetChild(User.Rocket.Id).gameObject;		
+		rocket.SetActive(true);
+	}
+	
 	void Update()
 	{
 		Vector3 target = moon.transform.position;
@@ -29,7 +36,6 @@ public class SpaceshipMovement : MonoBehaviour
 			{
 				avoidTarget = rocket.transform.position + Mathf.Clamp(hit.distance - avoidMargin, 0, avoidDistance) * rocket.transform.forward;
 				isAvoiding = true;
-				Debug.Log("J'esquive");
 			}
 			else isAvoiding = false;
 		}
