@@ -23,7 +23,7 @@ public class RocketController : MonoBehaviour
 	public GameObject modalRocket;
 	
 	private const string HOME_SCENE_NAME = "HomeScene";
-	private const int ID_DELTA_IV = 2;
+	private const int ID_DELTA_IV = 0;
 
 	void Start()
 	{	
