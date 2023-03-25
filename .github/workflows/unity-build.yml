@@ -26,7 +26,7 @@ jobs:
         build-method: build
         build-options: ''
         custom-args: ''
-        project-version-file: logiciel/ProjectSettings/ProjectVersion.txt
+        project-version-file: ProjectSettings/ProjectVersion.txt
 
     - name: Upload Windows build artifact
       uses: actions/upload-artifact@v2
@@ -56,7 +56,7 @@ jobs:
         build-method: build
         build-options: ''
         custom-args: ''
-        project-version-file: logiciel/ProjectSettings/ProjectVersion.txt
+        project-version-file: ProjectSettings/ProjectVersion.txt
 
     - name: Upload Linux build artifact
       uses: actions/upload-artifact@v2
