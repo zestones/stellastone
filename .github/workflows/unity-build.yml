@@ -14,20 +14,24 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Set up Unity
-      uses: game-ci/setup-unity@v1
-      with:
-        unity-version: 2021.3.16f1
-
     - name: Build Unity project for Windows
-      run: |
-        Unity -projectPath logiciel -batchmode -quit -buildTarget win64
+      uses: game-ci/unity-builder@v2.3.1
+      with:
+        target-platform: standalone
+        target-platform-version: 10.0.19041
+        unity-version: 2021.1.25f1
+        project-path: logiciel/
+        build-name: WindowsBuild.exe
+        build-path: Build/windows/
+        build-method: build
+        build-options: ''
+        custom-args: ''
 
     - name: Upload Windows build artifact
       uses: actions/upload-artifact@v2
       with:
         name: windows-build
-        path: logiciel/Build/windows
+        path: Build/windows
 
   build-linux:
     runs-on: ubuntu-latest
@@ -36,17 +40,21 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Set up Unity
-      uses: game-ci/setup-unity@v1
-      with:
-        unity-version: 2021.3.16f1
-
     - name: Build Unity project for Linux
-      run: |
-        Unity -projectPath logiciel -batchmode -quit -buildTarget linux64
+      uses: game-ci/unity-builder@v2.3.1
+      with:
+        target-platform: standalone
+        target-platform-version: linux
+        unity-version: 2021.1.25f1
+        project-path: logiciel/
+        build-name: LinuxBuild
+        build-path: Build/linux/
+        build-method: build
+        build-options: ''
+        custom-args: ''
 
     - name: Upload Linux build artifact
       uses: actions/upload-artifact@v2
       with:
         name: linux-build
-        path: logiciel/Build/linux
+        path: Build/linux
