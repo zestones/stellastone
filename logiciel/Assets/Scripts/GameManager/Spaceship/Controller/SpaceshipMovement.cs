@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SpaceshipMovement : MonoBehaviour
 {
@@ -16,9 +17,11 @@ public class SpaceshipMovement : MonoBehaviour
 	private Vector3 avoidTarget; // Destination évitement
 	private bool isAvoiding = false; // Indique si la fusée est en train d'éviter un objet
 	
+	private const string MOON_SCENE_NAME = "MoonScene";
+	
 	void Start()
 	{
-		rocket = rocketModels.transform.GetChild(User.Rocket.Id).gameObject;		
+		rocket = rocketModels.transform.GetChild(1).gameObject;		
 		rocket.SetActive(true);
 	}
 	
@@ -63,5 +66,12 @@ public class SpaceshipMovement : MonoBehaviour
 		rocket.transform.Rotate(Vector3.right, 90);
 
 		rocket.transform.position = Vector3.MoveTowards(rocket.transform.position, target, currentSpeed * Time.deltaTime);
+		
+		// Si la fusée est assez proche de la lune, charger la scène de la station spatiale
+		if (Vector3.Distance(rocket.transform.position, moon.transform.position) < moon.GetComponent<SphereCollider>().radius)
+		{
+			SceneManager.LoadScene(MOON_SCENE_NAME);
+		}
+		
 	}
 }

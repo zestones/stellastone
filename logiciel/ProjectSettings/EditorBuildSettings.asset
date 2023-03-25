@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SpaceScene.unity
     guid: 814be974cad794e15b4b92041614ba68
+  - enabled: 1
+    path: Assets/Scenes/MoonScene.unity
+    guid: 07f4fbb7b8ea17946832690b11221c3e
   m_configObjects: {}
