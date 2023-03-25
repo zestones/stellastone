@@ -20,7 +20,7 @@ jobs:
         target-platform: standalone
         target-platform-version: 10.0.19041
         unity-version: 2021.1.25f1
-        project-path: logiciel
+        projectPath: logiciel
         build-name: WindowsBuild.exe
         build-path: Build/windows/
         build-method: build
@@ -50,7 +50,7 @@ jobs:
         target-platform: standalone
         target-platform-version: linux
         unity-version: 2021.1.25f1
-        project-path: logiciel
+        projectPath: logiciel/
         build-name: LinuxBuild
         build-path: Build/linux/
         build-method: build
