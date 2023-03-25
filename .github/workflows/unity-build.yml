@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - use-choosed-rocket-in-mission
+      - main
 
 jobs:
   build-windows:
