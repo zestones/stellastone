@@ -39,7 +39,10 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-
+    
+    - name: List ProjectSettings folder contents
+      run: ls logiciel/ProjectSettings/
+    
     - name: Build Unity project for Linux
       uses: game-ci/unity-builder@v2
       with:
