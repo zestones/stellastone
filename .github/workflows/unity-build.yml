@@ -16,6 +16,8 @@ jobs:
 
     - name: Build Unity project for Windows
       uses: game-ci/unity-builder@v2
+      env:
+        UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
       with:
         target-platform: standalone
         target-platform-version: 10.0.19041
@@ -46,6 +48,8 @@ jobs:
     
     - name: Build Unity project for Linux
       uses: game-ci/unity-builder@v2
+      env:
+        UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
       with:
         target-platform: standalone
         target-platform-version: linux
