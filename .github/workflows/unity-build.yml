@@ -1,0 +1,51 @@
+name: Build Unity Project
+
+on:
+  push:
+    branches:
+      - use-choosed-rocket-in-mission
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Unity
+      uses: game-ci/unity-actions@v1
+      with:
+        unity-version: 2021.3.16f1
+
+    - name: Build Unity project for Windows
+      run: |
+        Unity -projectPath "." -batchmode -quit -buildTarget win64
+
+    - name: Upload Windows build artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: windows-build
+        path: Build/windows
+
+  build-linux:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Unity
+      uses: game-ci/unity-actions@v1
+      with:
+        unity-version: 2021.3.16f1
+
+    - name: Build Unity project for Linux
+      run: |
+        Unity -projectPath "." -batchmode -quit -buildTarget linux64
+
+    - name: Upload Linux build artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: linux-build
+        path: Build/linux
