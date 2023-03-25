@@ -24,7 +24,7 @@ jobs:
         unity-version: 2021.1.25f1
         projectPath: logiciel
         build-name: WindowsBuild.exe
-        build-path: Build/windows/
+        buildPath: Build/windows/
         build-method: build
         build-options: ''
         custom-args: ''
@@ -56,7 +56,7 @@ jobs:
         unity-version: 2021.1.25f1
         projectPath: logiciel/
         build-name: LinuxBuild
-        build-path: Build/linux/
+        buildPath: Build/linux/
         build-method: build
         build-options: ''
         custom-args: ''
