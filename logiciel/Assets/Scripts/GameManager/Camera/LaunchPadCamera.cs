@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LaunchPadCamera : MonoBehaviour
 {
@@ -12,12 +13,15 @@ public class LaunchPadCamera : MonoBehaviour
     public float numberRotation = 0.5f;
     public GameObject mainCamera;
 
+    public GameObject WelcomeText;
+
     void Start()
-    {
+    {   Text MissionName = WelcomeText.transform.Find("MissionName").GetComponent<Text>();
         // Définir la position cible de la caméra à la position de l'objet attaché
         if (attachedObject != null) {
             targetPosition = attachedObject.transform.position;
         }
+        MissionName.text = User.Rocket.mission.Name;
     }
 
     void Update()
@@ -38,6 +42,7 @@ public class LaunchPadCamera : MonoBehaviour
         if (rotationCount >= numberRotation) {
             gameObject.SetActive(false);
             mainCamera.SetActive(true);
+            WelcomeText.SetActive(false);
         }
 
         // Faire en sorte que la caméra pointe toujours vers l'objet attaché à la scène
