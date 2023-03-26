@@ -17,7 +17,7 @@ public class Mission
         Images = new List<Texture2D>();
     }
 
-    public Mission(string name, string description, string launchDate, string destination, double destinationDistance, List<Astronaut> astronauts)
+    public Mission(string name, string description, string launchDate, string destination, double destinationDistance, List<Astronaut> astronauts, List<Texture2D> images)
     {
         Name = name;
         Description = description;
@@ -25,6 +25,6 @@ public class Mission
         Destination = destination;
         DestinationDistance = destinationDistance;
         Astronauts = astronauts;
-        Images = new List<Texture2D>();
+        Images = images;
     }
 }

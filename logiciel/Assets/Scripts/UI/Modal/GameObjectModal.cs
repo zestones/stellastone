@@ -27,6 +27,12 @@ public class GameObjectModal : MonoBehaviour
 		title.text = obj.name;
 
 		Text description = Modal.transform.Find("Description").GetComponent<Text>();
-		description.text = "Description du GameObject a afficher";
+
+		if (obj.GetComponent<Text>() != null)
+		{
+			string text = obj.GetComponent<Text>().text;
+			if (text != null) { description.text = text; }
+			else { description.text = "Description du GameObject a afficher"; }
+		}
 	}
 }

@@ -157,6 +157,139 @@ Transform:
   m_Father: {fileID: 1791100257}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &84906714
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 84906715}
+  - component: {fileID: 84906718}
+  - component: {fileID: 84906717}
+  - component: {fileID: 84906716}
+  m_Layer: 5
+  m_Name: ButtonMusicOn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &84906715
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 84906714}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1903973749}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 423.14453, y: 228.06683}
+  m_SizeDelta: {x: 22.8092, y: 17.6861}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &84906716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 84906714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.13333334, b: 0.38431373, a: 1}
+    m_PressedColor: {r: 0.9607843, g: 0.13333334, b: 0.38431373, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.13333334, b: 0.38431373, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 84906717}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 609425976}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: UnPause
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+--- !u!114 &84906717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 84906714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 830ea065323b9d32faae23345329a04a, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &84906718
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 84906714}
+  m_CullTransparentMesh: 1
 --- !u!1001 &137279042
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -174,7 +307,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4431810912100570, guid: 5d1442ad8c11442988e0eca5d8af73f0, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4431810912100570, guid: 5d1442ad8c11442988e0eca5d8af73f0, type: 3}
       propertyPath: m_LocalScale.x
@@ -236,11 +369,15 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: c5de37dd5a75ada4f894e7076b5ae4f7, type: 2}
+    - target: {fileID: 8110330353615164366, guid: 5d1442ad8c11442988e0eca5d8af73f0, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d1442ad8c11442988e0eca5d8af73f0, type: 3}
---- !u!4 &137279043 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4431810912100570, guid: 5d1442ad8c11442988e0eca5d8af73f0, type: 3}
+--- !u!224 &137279043 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8110330353615164366, guid: 5d1442ad8c11442988e0eca5d8af73f0, type: 3}
   m_PrefabInstance: {fileID: 137279042}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &157730963
@@ -260,7 +397,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4795756332844644, guid: c0aedbee0212d4ba08d6e85a65854d22, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4795756332844644, guid: c0aedbee0212d4ba08d6e85a65854d22, type: 3}
       propertyPath: m_LocalPosition.x
@@ -445,7 +582,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4643521465287934, guid: 300f80108a63f48618cb4a1c8b8c1e86, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4643521465287934, guid: 300f80108a63f48618cb4a1c8b8c1e86, type: 3}
       propertyPath: m_LocalScale.x
@@ -511,13 +648,12 @@ PrefabInstance:
       propertyPath: InitialModule.startSpeed.scalar
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5025744124015807414, guid: 300f80108a63f48618cb4a1c8b8c1e86, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 300f80108a63f48618cb4a1c8b8c1e86, type: 3}
---- !u!4 &256709530 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4643521465287934, guid: 300f80108a63f48618cb4a1c8b8c1e86, type: 3}
-  m_PrefabInstance: {fileID: 256709529}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &312968205
 GameObject:
   m_ObjectHideFlags: 0
@@ -546,11 +682,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 464864799}
+  - {fileID: 464864803}
   - {fileID: 606613593}
   - {fileID: 703244457}
-  - {fileID: 256709530}
-  - {fileID: 437541059}
+  - {fileID: 365292722}
+  - {fileID: 437541063}
   - {fileID: 157730964}
   - {fileID: 5284285821426343383}
   - {fileID: 1946680568}
@@ -558,10 +694,148 @@ Transform:
   - {fileID: 992282782}
   - {fileID: 137279043}
   - {fileID: 729760129}
-  - {fileID: 710492599}
+  - {fileID: 2281512031492740497}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &345002281
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 345002282}
+  - component: {fileID: 345002285}
+  - component: {fileID: 345002284}
+  - component: {fileID: 345002283}
+  m_Layer: 5
+  m_Name: ButtonMusicOff
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &345002282
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 345002281}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1903973749}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 423.14453, y: 196.2}
+  m_SizeDelta: {x: 22.8092, y: 17.6861}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &345002283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 345002281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.13333334, b: 0.38431373, a: 1}
+    m_PressedColor: {r: 0.9607843, g: 0.13333334, b: 0.38431373, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.13333334, b: 0.38431373, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 345002284}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 609425976}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Pause
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+--- !u!114 &345002284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 345002281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: f9eee786a0c1542d78e055a78e3fb5d6, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &345002285
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 345002281}
+  m_CullTransparentMesh: 1
+--- !u!1 &346066440 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2281512031859168294, guid: 36b59799c25e067469075bda8cbc86db, type: 3}
+  m_PrefabInstance: {fileID: 2281512031492740496}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &359399020 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1288793558353234, guid: 1818e1a170ef94c3aacee2ba50057521, type: 3}
@@ -585,8 +859,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.00001
-  sun: {fileID: 710492599}
+  sun: {fileID: 1974069593}
   rotationSpeed: 10
+--- !u!224 &365292722 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5025744124015807414, guid: 300f80108a63f48618cb4a1c8b8c1e86, type: 3}
+  m_PrefabInstance: {fileID: 256709529}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &389434601
 GameObject:
   m_ObjectHideFlags: 0
@@ -650,7 +929,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4387678931267766, guid: 1818e1a170ef94c3aacee2ba50057521, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4387678931267766, guid: 1818e1a170ef94c3aacee2ba50057521, type: 3}
       propertyPath: m_LocalScale.x
@@ -712,13 +991,22 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a523149cea5d8ef41bff85e56a8b6b7d, type: 2}
+    - target: {fileID: 1800294355029866215, guid: 1818e1a170ef94c3aacee2ba50057521, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6687818739450767301, guid: 1818e1a170ef94c3aacee2ba50057521, type: 3}
+      propertyPath: m_Text
+      value: "Mars est souvent appel\xE9e la \"plan\xE8te rouge\" en raison de sa
+        couleur distinctive caus\xE9e par l'abondance de fer oxyd\xE9 sur sa surface.
+        Mars poss\xE8de une atmosph\xE8re mince et poussi\xE9reuse et est principalement
+        constitu\xE9e de roche et de glace. La temp\xE9rature de sa surface varie
+        consid\xE9rablement entre les p\xF4les et l'\xE9quateur, allant de -143\xB0C
+        \xE0 l'\xE9quateur \xE0 -63\xB0C aux p\xF4les. Mars orbite autour du Soleil
+        en environ 687 jours."
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1818e1a170ef94c3aacee2ba50057521, type: 3}
---- !u!4 &437541059 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4387678931267766, guid: 1818e1a170ef94c3aacee2ba50057521, type: 3}
-  m_PrefabInstance: {fileID: 437541058}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &437541062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -732,8 +1020,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.1
-  sun: {fileID: 710492599}
+  sun: {fileID: 1974069593}
   rotationSpeed: 10
+--- !u!224 &437541063 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1800294355029866215, guid: 1818e1a170ef94c3aacee2ba50057521, type: 3}
+  m_PrefabInstance: {fileID: 437541058}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &463332988 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1856687845478954, guid: ab152f61198d54532ae39108e616ff59, type: 3}
@@ -818,13 +1111,26 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 0a9468b29264ff543bd39d6b0339fd80, type: 2}
+    - target: {fileID: 3140687402879822142, guid: ab152f61198d54532ae39108e616ff59, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.011
+      objectReference: {fileID: 0}
+    - target: {fileID: 3140687402879822142, guid: ab152f61198d54532ae39108e616ff59, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.009
+      objectReference: {fileID: 0}
+    - target: {fileID: 6545981786939868797, guid: ab152f61198d54532ae39108e616ff59, type: 3}
+      propertyPath: m_Text
+      value: "Mercure est la plan\xE8te la plus proche du Soleil et la plus petite
+        plan\xE8te du syst\xE8me solaire. Elle est constitu\xE9e principalement de
+        roche et de m\xE9tal et elle ne poss\xE8de pas d'atmosph\xE8re significative.
+        En raison de sa proximit\xE9 avec le Soleil, la temp\xE9rature de sa surface
+        varie consid\xE9rablement entre le jour et la nuit, allant de plus de 400\xB0C
+        le jour \xE0 moins de -170\xB0C la nuit. Mercure orbite autour du Soleil
+        en environ 88 jours."
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab152f61198d54532ae39108e616ff59, type: 3}
---- !u!4 &464864799 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4620931210112870, guid: ab152f61198d54532ae39108e616ff59, type: 3}
-  m_PrefabInstance: {fileID: 464864798}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &464864802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -838,8 +1144,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.1
-  sun: {fileID: 710492599}
+  sun: {fileID: 1974069593}
   rotationSpeed: 10
+--- !u!224 &464864803 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3140687402879822142, guid: ab152f61198d54532ae39108e616ff59, type: 3}
+  m_PrefabInstance: {fileID: 464864798}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &464864808
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 463332988}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.0743845
+  m_Center: {x: 0.084002614, y: 0.11051476, z: -0.13339654}
 --- !u!1 &499566221
 GameObject:
   m_ObjectHideFlags: 0
@@ -875,8 +1199,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0000076294, y: 0.00083923}
-  m_SizeDelta: {x: 605.4, y: 270.61}
+  m_AnchoredPosition: {x: -5, y: 17.3682}
+  m_SizeDelta: {x: 683.1073, y: 305.3446}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &499566223
 MonoBehaviour:
@@ -951,7 +1275,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10.215, y: 93}
+  m_AnchoredPosition: {x: -10.215, y: 138}
   m_SizeDelta: {x: 384.7299, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &589139352
@@ -1025,6 +1349,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 783248404}
+  - {fileID: 1903973749}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1045,7 +1370,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4024914263291546, guid: 835acc1a9ebe24c0fa3854c99346f9cd, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4024914263291546, guid: 835acc1a9ebe24c0fa3854c99346f9cd, type: 3}
       propertyPath: m_LocalScale.x
@@ -1107,13 +1432,156 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e36d656f0af78224c96a6e21ad9a4a6a, type: 2}
+    - target: {fileID: 5235966375002172505, guid: 835acc1a9ebe24c0fa3854c99346f9cd, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7274225621313491786, guid: 835acc1a9ebe24c0fa3854c99346f9cd, type: 3}
+      propertyPath: m_Text
+      value: " V\xE9nus est la deuxi\xE8me plan\xE8te la plus proche du Soleil et
+        est souvent consid\xE9r\xE9e comme la jumelle de la Terre en raison de sa
+        taille et de sa masse similaires. Cependant, V\xE9nus poss\xE8de une atmosph\xE8re
+        dense compos\xE9e principalement de dioxyde de carbone qui cr\xE9e un effet
+        de serre extr\xEAme, rendant sa surface chaude et inhospitali\xE8re. La temp\xE9rature
+        \xE0 la surface de V\xE9nus est constamment sup\xE9rieure \xE0 460\xB0C,
+        ce qui en fait la plan\xE8te la plus chaude du syst\xE8me solaire. V\xE9nus
+        orbite autour du Soleil en environ 225 jours."
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 835acc1a9ebe24c0fa3854c99346f9cd, type: 3}
---- !u!4 &606613593 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4024914263291546, guid: 835acc1a9ebe24c0fa3854c99346f9cd, type: 3}
+--- !u!224 &606613593 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5235966375002172505, guid: 835acc1a9ebe24c0fa3854c99346f9cd, type: 3}
   m_PrefabInstance: {fileID: 606613592}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &609425975
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 609425977}
+  - component: {fileID: 609425976}
+  m_Layer: 0
+  m_Name: Audio Source
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &609425976
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 609425975}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: ad0f4158d7074f39b89b8545f9e67c89, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.128
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &609425977
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 609425975}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 491.924, y: 286.1826, z: -10.578938}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &685988416
 GameObject:
   m_ObjectHideFlags: 0
@@ -5948,7 +6416,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4693579709242440, guid: f9a741bb8762344c6a2a9cb4217ef728, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4693579709242440, guid: f9a741bb8762344c6a2a9cb4217ef728, type: 3}
       propertyPath: m_LocalScale.x
@@ -6002,17 +6470,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6645049868998420990, guid: f9a741bb8762344c6a2a9cb4217ef728, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9a741bb8762344c6a2a9cb4217ef728, type: 3}
---- !u!4 &703244457 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4693579709242440, guid: f9a741bb8762344c6a2a9cb4217ef728, type: 3}
+--- !u!224 &703244457 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6645049868998420990, guid: f9a741bb8762344c6a2a9cb4217ef728, type: 3}
   m_PrefabInstance: {fileID: 703244456}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &710492599 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2281512031859168295, guid: 36b59799c25e067469075bda8cbc86db, type: 3}
-  m_PrefabInstance: {fileID: 2281512031492740496}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &726626370
 GameObject:
@@ -6052,8 +6519,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -8}
-  m_SizeDelta: {x: 605.4001, y: 270.6128}
+  m_AnchoredPosition: {x: -0.00091624, y: -6.5079}
+  m_SizeDelta: {x: 937, y: 428.2462}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &726626372
 MonoBehaviour:
@@ -6081,7 +6548,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4103310470163434, guid: baebbc833ecda42dd8a75966c9f62420, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4103310470163434, guid: baebbc833ecda42dd8a75966c9f62420, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6119,15 +6586,32 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 07a55086af92be943864b3fe3f36ee4e, type: 2}
+    - target: {fileID: 90958227361721507, guid: baebbc833ecda42dd8a75966c9f62420, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 199697089879741776, guid: baebbc833ecda42dd8a75966c9f62420, type: 3}
       propertyPath: m_Materials.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8586875313433145768, guid: baebbc833ecda42dd8a75966c9f62420, type: 3}
+      propertyPath: m_Text
+      value: "Pluton est une plan\xE8te naine situ\xE9e \xE0 la p\xE9riph\xE9rie
+        du syst\xE8me solaire, au-del\xE0 de l'orbite de Neptune. Elle est compos\xE9e
+        principalement de glace d'eau, de m\xE9thane et de roches. Pluton a une taille
+        relativement petite, avec un diam\xE8tre d'environ 2 377 km, ce qui en fait
+        la plus petite plan\xE8te naine connue. Elle poss\xE8de \xE9galement une
+        atmosph\xE8re t\xE9nue compos\xE9e principalement d'azote, de m\xE9thane
+        et de monoxyde de carbone. En 2015, la sonde New Horizons a survol\xE9 Pluton
+        pour la premi\xE8re fois et a r\xE9v\xE9l\xE9 de nouveaux d\xE9tails sur
+        cette plan\xE8te naine, notamment la pr\xE9sence de montagnes de glace et
+        de vastes plaines glac\xE9es."
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: baebbc833ecda42dd8a75966c9f62420, type: 3}
---- !u!4 &729760129 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4103310470163434, guid: baebbc833ecda42dd8a75966c9f62420, type: 3}
+--- !u!224 &729760129 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 90958227361721507, guid: baebbc833ecda42dd8a75966c9f62420, type: 3}
   m_PrefabInstance: {fileID: 729760128}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &775315304 stripped
@@ -6273,7 +6757,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4799057029891002, guid: c91342f6e3afc48fd958056404ead345, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4799057029891002, guid: c91342f6e3afc48fd958056404ead345, type: 3}
       propertyPath: m_LocalScale.x
@@ -6335,11 +6819,24 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 5a528ca0bfd88bf469145feb8f6235e1, type: 2}
+    - target: {fileID: 1848516927704796290, guid: c91342f6e3afc48fd958056404ead345, type: 3}
+      propertyPath: m_Text
+      value: "Uranus est la septi\xE8me plan\xE8te en partant du Soleil. Elle est
+        caract\xE9ris\xE9e par son axe de rotation inclin\xE9 de 98 degr\xE9s par
+        rapport \xE0 son plan orbital, lui donnant ainsi des saisons extr\xEAmement
+        longues. Uranus est principalement constitu\xE9e de glaces et de roches,
+        et poss\xE8de un syst\xE8me d'anneaux assez faible en comparaison \xE0 ceux
+        de Saturne. Elle compte \xE9galement 27 satellites naturels connus."
+      objectReference: {fileID: 0}
+    - target: {fileID: 8903356080273928380, guid: c91342f6e3afc48fd958056404ead345, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c91342f6e3afc48fd958056404ead345, type: 3}
---- !u!4 &992282782 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4799057029891002, guid: c91342f6e3afc48fd958056404ead345, type: 3}
+--- !u!224 &992282782 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8903356080273928380, guid: c91342f6e3afc48fd958056404ead345, type: 3}
   m_PrefabInstance: {fileID: 992282781}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1065835588
@@ -6377,8 +6874,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.6993, y: -27}
-  m_SizeDelta: {x: 547.8669, y: 171.6121}
+  m_AnchoredPosition: {x: -5.4602, y: -23.5041}
+  m_SizeDelta: {x: 645.6508, y: 200.4459}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1065835590
 MonoBehaviour:
@@ -6402,10 +6899,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 26
+    m_FontSize: 16
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 2
+    m_MinSize: 1
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -6440,7 +6937,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.1
-  sun: {fileID: 710492599}
+  sun: {fileID: 1974069593}
   rotationSpeed: 10
 --- !u!1 &1113770709
 GameObject:
@@ -11641,8 +12138,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.1
-  sun: {fileID: 710492599}
+  sun: {fileID: 1974069593}
   rotationSpeed: 10
+--- !u!135 &1633764705
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1633764697}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.0206854
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1780738091
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11688,7 +12198,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4677324220665258, guid: b4201d402613a4464b35c805dafcca62, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4677324220665258, guid: b4201d402613a4464b35c805dafcca62, type: 3}
       propertyPath: m_LocalScale.x
@@ -11746,11 +12256,25 @@ PrefabInstance:
       propertyPath: m_Materials.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6979937821327997764, guid: b4201d402613a4464b35c805dafcca62, type: 3}
+      propertyPath: m_Text
+      value: "Saturne est la deuxi\xE8me plus grande plan\xE8te du syst\xE8me solaire
+        et est c\xE9l\xE8bre pour ses anneaux brillants et \xE9tendus. Elle est principalement
+        constitu\xE9e de gaz, principalement d'hydrog\xE8ne et d'h\xE9lium, et poss\xE8de
+        \xE9galement une atmosph\xE8re turbulente et color\xE9e. Les anneaux de Saturne
+        sont constitu\xE9s de milliards de petits fragments de glace et de roche
+        en orbite autour de la plan\xE8te. Saturne poss\xE8de \xE9galement de nombreux
+        satellites naturels, dont le plus"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9190842442222280961, guid: b4201d402613a4464b35c805dafcca62, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4201d402613a4464b35c805dafcca62, type: 3}
---- !u!4 &1780738092 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4677324220665258, guid: b4201d402613a4464b35c805dafcca62, type: 3}
+--- !u!224 &1780738092 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 9190842442222280961, guid: b4201d402613a4464b35c805dafcca62, type: 3}
   m_PrefabInstance: {fileID: 1780738091}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1791100256
@@ -11823,6 +12347,108 @@ MonoBehaviour:
   avoidanceStrength: 5
   avoidSpeedMultiplier: 0.5
   rotationSpeed: 10
+--- !u!1 &1903973748
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1903973749}
+  - component: {fileID: 1903973752}
+  - component: {fileID: 1903973751}
+  - component: {fileID: 1903973750}
+  m_Layer: 5
+  m_Name: Canvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1903973749
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903973748}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 84906715}
+  - {fileID: 345002282}
+  m_Father: {fileID: 598977219}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
+--- !u!114 &1903973750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903973748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &1903973751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903973748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
+--- !u!223 &1903973752
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903973748}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1 &1906897645
 GameObject:
   m_ObjectHideFlags: 0
@@ -11859,7 +12485,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 262, y: 107}
+  m_AnchoredPosition: {x: 262, y: 137}
   m_SizeDelta: {x: 47.953, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1906897647
@@ -11961,7 +12587,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4030326048459444, guid: 7e4bfb3c6ba1d4bc4ba31d585abdae0f, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4030326048459444, guid: 7e4bfb3c6ba1d4bc4ba31d585abdae0f, type: 3}
       propertyPath: m_LocalScale.x
@@ -12023,11 +12649,26 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 774df415d01f5af45bea7f667772d21c, type: 2}
+    - target: {fileID: 3349571382572366448, guid: 7e4bfb3c6ba1d4bc4ba31d585abdae0f, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4665785381016324295, guid: 7e4bfb3c6ba1d4bc4ba31d585abdae0f, type: 3}
+      propertyPath: m_Text
+      value: "Jupiter est la plus grande plan\xE8te du syst\xE8me solaire et poss\xE8de
+        une masse sup\xE9rieure \xE0 toutes les autres plan\xE8tes combin\xE9es.
+        Elle est principalement constitu\xE9e de gaz, principalement d'hydrog\xE8ne
+        et d'h\xE9lium, et poss\xE8de une atmosph\xE8re turbulente et color\xE9e
+        avec de grandes taches sombres appel\xE9es \"taches de temp\xEAte\". Jupiter
+        poss\xE8de \xE9galement de nombreux satellites naturels, dont les quatre
+        plus grands sont appel\xE9s les \"lunes galil\xE9ennes\". Jupiter orbite
+        autour du Soleil en environ 12 ans."
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e4bfb3c6ba1d4bc4ba31d585abdae0f, type: 3}
---- !u!4 &1946680568 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4030326048459444, guid: 7e4bfb3c6ba1d4bc4ba31d585abdae0f, type: 3}
+--- !u!224 &1946680568 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3349571382572366448, guid: 7e4bfb3c6ba1d4bc4ba31d585abdae0f, type: 3}
   m_PrefabInstance: {fileID: 1946680567}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1946680571
@@ -12043,8 +12684,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.1
-  sun: {fileID: 710492599}
+  sun: {fileID: 1974069593}
   rotationSpeed: 10
+--- !u!4 &1974069593 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2281512031219293241, guid: 36b59799c25e067469075bda8cbc86db, type: 3}
+  m_PrefabInstance: {fileID: 2281512031492740496}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2017562434
 GameObject:
   m_ObjectHideFlags: 0
@@ -12215,7 +12861,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.1
-  sun: {fileID: 710492599}
+  sun: {fileID: 1974069593}
   rotationSpeed: 10
 --- !u!1 &2057727237 stripped
 GameObject:
@@ -12235,7 +12881,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.1
-  sun: {fileID: 710492599}
+  sun: {fileID: 1974069593}
   rotationSpeed: 10
 --- !u!1 &2105977277
 GameObject:
@@ -19928,7 +20574,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2281512031859168295, guid: 36b59799c25e067469075bda8cbc86db, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 2281512031859168295, guid: 36b59799c25e067469075bda8cbc86db, type: 3}
       propertyPath: m_LocalPosition.x
@@ -19974,8 +20620,44 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sun FX
       objectReference: {fileID: 0}
+    - target: {fileID: 5935585895174999189, guid: 36b59799c25e067469075bda8cbc86db, type: 3}
+      propertyPath: m_Text
+      value: "Le Soleil est une \xE9toile de taille moyenne de type spectral G qui
+        est situ\xE9e au centre du syst\xE8me solaire. Il repr\xE9sente environ 99,86%
+        de la masse totale du syst\xE8me solaire et poss\xE8de une temp\xE9rature
+        de surface d'environ 5 500 \xB0C. Il est principalement constitu\xE9 d'hydrog\xE8ne
+        (environ 74% de sa masse) et d'h\xE9lium (environ 24% de sa masse) ainsi
+        que d'autres \xE9l\xE9ments en moindre quantit\xE9.\nLe Soleil produit de
+        l'\xE9nergie par fusion nucl\xE9aire, en convertissant l'hydrog\xE8ne en
+        h\xE9lium, ce qui lib\xE8re une quantit\xE9 massive d'\xE9nergie sous forme
+        de rayonnement \xE9lectromagn\xE9tique et de particules. Cette \xE9nergie
+        est ce qui permet la vie sur Terre et est \xE0 l'origine de la m\xE9t\xE9o,
+        des climats, des saisons et de la vie elle-m\xEAme."
+      objectReference: {fileID: 0}
+    - target: {fileID: 8480197210218111632, guid: 36b59799c25e067469075bda8cbc86db, type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36b59799c25e067469075bda8cbc86db, type: 3}
+--- !u!224 &2281512031492740497 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8480197210218111632, guid: 36b59799c25e067469075bda8cbc86db, type: 3}
+  m_PrefabInstance: {fileID: 2281512031492740496}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &2281512031492740500
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 346066440}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &2291596073715173514
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -27109,7 +27791,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4319175231800751054, guid: 05f83c52d1bc44293a6b0b2bee748289, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4319175231800751054, guid: 05f83c52d1bc44293a6b0b2bee748289, type: 3}
       propertyPath: m_LocalPosition.x
