@@ -38,7 +38,7 @@ public class RocketLauncher : MonoBehaviour
 	
 	float defaultCrossSectionalArea = 0.1f; // Example cross-sectional area of a rocket in m^2
 	private const int ROCKET_ROTATION_SPEED = 25; // Speed at which the rocket rotates in degrees per second
-
+	private AudioSource audioSource; 
 	void Start()
 	{
 		rocket.collisionDetectionMode = CollisionDetectionMode.Continuous;
@@ -51,10 +51,13 @@ public class RocketLauncher : MonoBehaviour
 
 		fireParticles.Stop();
 		smokeParticles.Stop();
+		audioSource = GameObject.Find("AudioDecollage").GetComponent<AudioSource>();
 	}
 
 	void Update()
 	{	
+		if(Input.GetKeyDown(KeyCode.Space)) audioSource.Play(); 
+	
 		if (Input.GetKey(KeyCode.Space) && fuel > 0)
 		{
 			launchTime += Time.deltaTime; // increment the launch time
@@ -71,6 +74,7 @@ public class RocketLauncher : MonoBehaviour
 			fireParticles.Play();
 			smokeParticles.Play();
 			Status.text = "Décollage en cours... Maintenez la touche espace.";
+			
 		}
 		else if (fuel <= 0)
 		{
