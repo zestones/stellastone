@@ -13,6 +13,7 @@ public class DisplayEquipage : MonoBehaviour
 	void Start()
 	{
 		Equipage.SetActive(false);
+		Debug.Log("DisplayEquipage" + User.Rocket.mission.Astronauts.Count);
 		if (User.Rocket != null) DisplayCards();
 	}
 

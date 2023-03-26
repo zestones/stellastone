@@ -32,9 +32,8 @@ public class MissionInitializer
         List<Texture2D> apolloImages = new List<Texture2D>();
         apolloImages.Add(Resources.Load<Texture2D>("Images/Missions/apollo11_1")); 
         apolloImages.Add(Resources.Load<Texture2D>("Images/Missions/apollo11_2")); 
-        Mission apollo_11 = new Mission("Apollo 11","Première mission en équipage à atterrir sur la Lune","16 juillet 1969","Lune",384400,apolloAstronauts,apolloImages);
+        Mission apollo_11 = new Mission("Apollo 11", "Première mission en équipage à atterrir sur la Lune", "16 juillet 1969", "Lune", 384400, apolloAstronauts, apolloImages);
         missionList.Add(apollo_11);
-        
     }
 
 }
