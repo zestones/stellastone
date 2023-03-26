@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class RocketLauncher : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class RocketLauncher : MonoBehaviour
 	public ParticleSystem smokeParticles;
 	public TextMeshProUGUI speedText;
 	public TextMeshProUGUI altitudeText;
-
+	public Text Status;
 	public GameObject rocketModels;
 
 	private float fuel; // quantity of fuel left in the tank
@@ -69,6 +70,7 @@ public class RocketLauncher : MonoBehaviour
 	
 			fireParticles.Play();
 			smokeParticles.Play();
+			Status.text = "Décollage en cours... Maintenez la touche espace.";
 		}
 		else if (fuel <= 0)
 		{
@@ -76,10 +78,14 @@ public class RocketLauncher : MonoBehaviour
 			fireParticles.Stop();
 			smokeParticles.Stop();
 		}
+		else if (!Input.GetKey(KeyCode.Space) && launchTime > 0){
+			Status.text = "Votre fusée risque de se crasher, appuyez sur Espace!";
+		}
 		else 
 		{
 			fireParticles.Stop();
 			smokeParticles.Stop();
+			
 		}
 
 		// Change the Scene when the rocket reaches the limit altitude
