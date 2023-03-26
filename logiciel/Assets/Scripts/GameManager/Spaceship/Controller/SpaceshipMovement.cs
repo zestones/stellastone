@@ -17,12 +17,21 @@ public class SpaceshipMovement : MonoBehaviour
 	private Vector3 avoidTarget; // Destination évitement
 	private bool isAvoiding = false; // Indique si la fusée est en train d'éviter un objet
 	
+	private GameObject mainCamera;
+	private GameObject cockpit;
+	
+	
+	
 	private const string MOON_SCENE_NAME = "MoonScene";
 	
 	void Start()
 	{
-		rocket = rocketModels.transform.GetChild(1).gameObject;		
+		rocket = rocketModels.transform.GetChild(2).gameObject;		
 		rocket.SetActive(true);
+		
+		mainCamera = rocket.transform.Find("Main Camera").gameObject;
+		cockpit = rocket.transform.Find("sinonatrix_cockpit").gameObject;
+		cockpit.SetActive(false);	
 	}
 	
 	void Update()
@@ -72,6 +81,17 @@ public class SpaceshipMovement : MonoBehaviour
 		{
 			SceneManager.LoadScene(MOON_SCENE_NAME);
 		}
-		
+	}
+	
+	public void OnCockpitClick()
+	{
+		mainCamera.SetActive(false);
+		cockpit.SetActive(true);
+	}
+	
+	public void OnMainCameraClick()
+	{
+		mainCamera.SetActive(true);
+		cockpit.SetActive(false);
 	}
 }

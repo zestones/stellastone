@@ -34,14 +34,8 @@ public class DisplayUserRocket : MonoBehaviour {
 	{
 		if(User.Rocket != null)
 		{
-			if (User.Rocket.Id == ID_DELTA_IV) 
-			{
-				rocketModel.transform.Rotate(0f,  0f , rotationSpeed * Time.deltaTime);
-			}
-			else 
-			{
-				rocketModel.transform.Rotate(0f, rotationSpeed * Time.deltaTime, 0f);
-			}
+			if (User.Rocket.Id == ID_DELTA_IV) rocketModel.transform.Rotate(0f,  0f , rotationSpeed * Time.deltaTime);
+			else rocketModel.transform.Rotate(0f, rotationSpeed * Time.deltaTime, 0f);
 		}
 	}
 	

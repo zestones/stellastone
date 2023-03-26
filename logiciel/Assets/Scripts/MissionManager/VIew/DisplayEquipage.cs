@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class DisplayEquipage : MonoBehaviour 
-{   public List<Astronaut> astronauts;
+{   public List<Astronaut> astronauts = new List<Astronaut>();
 	public GameObject astronautCardPrefab; // le préfab de la carte d'astronaute
 	public GameObject Equipage;
 	public GameObject EquipageCards;
@@ -13,7 +13,6 @@ public class DisplayEquipage : MonoBehaviour
 	void Start()
 	{
 		Equipage.SetActive(false);
-		Debug.Log("DisplayEquipage" + User.Rocket.mission.Astronauts.Count);
 		if (User.Rocket != null) DisplayCards();
 	}
 

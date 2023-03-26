@@ -104,7 +104,11 @@ public class CameraController : MonoBehaviour
 	public void SetSensitivity(float newSensitivity) { sensitivity = newSensitivity; }
 		
 	// Redirect to the home scene
-	void OnHomeButtonClick() { SceneManager.LoadScene(HOME_NAME_SCENE); }
+	void OnHomeButtonClick() { 
+		resumeGame();
+		Cursor.visible = true;
+		SceneManager.LoadSceneAsync(HOME_NAME_SCENE); 
+	}
 	
 	// Resume the game
 	void OnResumeButtonClick() { resumeGame(); }
