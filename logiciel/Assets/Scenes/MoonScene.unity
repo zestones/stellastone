@@ -3174,18 +3174,18 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1387642060}
-  - component: {fileID: 1387642063}
   - component: {fileID: 1387642062}
   - component: {fileID: 1387642061}
   - component: {fileID: 1387642064}
   - component: {fileID: 1387642065}
+  - component: {fileID: 1387642066}
   m_Layer: 0
   m_Name: Spectator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1387642060
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3270,19 +3270,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1387642059}
   m_CullTransparentMesh: 1
---- !u!65 &1387642063
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1387642059}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.13464355, y: 0.21473552, z: 0.14564818}
-  m_Center: {x: -0.012878418, y: 0.10558649, z: 0.012135416}
 --- !u!114 &1387642064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3313,6 +3300,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!136 &1387642066
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1387642059}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.047826707
+  m_Height: 0.1990974
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.09563559, z: 0}
 --- !u!1 &1480116420
 GameObject:
   m_ObjectHideFlags: 0
