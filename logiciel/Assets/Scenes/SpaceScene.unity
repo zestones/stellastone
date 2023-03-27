@@ -2198,7 +2198,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "  Clic sur un objet = Infos sur l'objet cliqu\xE9 "
+  m_Text: "Affiche les noms des \xE9toiles"
 --- !u!222 &515155154
 CanvasRenderer:
   m_ObjectHideFlags: 0
