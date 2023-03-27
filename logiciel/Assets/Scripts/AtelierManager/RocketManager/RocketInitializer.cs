@@ -27,7 +27,7 @@ public class RocketInitializer
 		delta_IV.Thrust = 7.3f;
 		delta_IV.MaxAcceleration = 5.0f;
 		delta_IV.Model = rocketModels[delta_IV.Id];
-		delta_IV.mission = mi.missionList[0];
+		delta_IV.mission = mi.missionList[delta_IV.Id];
 		delta_IV.Initialize(rocketsComponents[delta_IV.Id]);
 		rocketList.Add(delta_IV);
 		
@@ -46,7 +46,7 @@ public class RocketInitializer
 		falcon_heavy.Thrust = 22.819f;
 		falcon_heavy.Model = rocketModels[falcon_heavy.Id];
 		falcon_heavy.Initialize(rocketsComponents[falcon_heavy.Id]);
-		falcon_heavy.mission = mi.missionList[0];
+		falcon_heavy.mission = mi.missionList[falcon_heavy.Id];
 		rocketList.Add(falcon_heavy);
 		
 		Rocket saturn_V = new Rocket(2, "Saturn V");
@@ -63,7 +63,7 @@ public class RocketInitializer
 		saturn_V.PayloadMass = 14000;
 		saturn_V.Thrust= 35.10f;
 		saturn_V.Model = rocketModels[saturn_V.Id];
-		saturn_V.mission = mi.missionList[0];
+		saturn_V.mission = mi.missionList[saturn_V.Id];
 		saturn_V.Initialize(rocketsComponents[saturn_V.Id]);
 		rocketList.Add(saturn_V);
 	}	

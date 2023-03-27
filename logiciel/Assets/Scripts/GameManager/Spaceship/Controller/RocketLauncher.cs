@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class RocketLauncher : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class RocketLauncher : MonoBehaviour
 	public ParticleSystem smokeParticles;
 	public TextMeshProUGUI speedText;
 	public TextMeshProUGUI altitudeText;
-
+	public Text Status;
 	public GameObject rocketModels;
 
 	private float fuel; // quantity of fuel left in the tank
@@ -37,7 +38,7 @@ public class RocketLauncher : MonoBehaviour
 	
 	float defaultCrossSectionalArea = 0.1f; // Example cross-sectional area of a rocket in m^2
 	private const int ROCKET_ROTATION_SPEED = 25; // Speed at which the rocket rotates in degrees per second
-
+	private AudioSource audioSource; 
 	void Start()
 	{
 		rocket.collisionDetectionMode = CollisionDetectionMode.Continuous;
@@ -50,10 +51,13 @@ public class RocketLauncher : MonoBehaviour
 
 		fireParticles.Stop();
 		smokeParticles.Stop();
+		audioSource = GameObject.Find("AudioDecollage").GetComponent<AudioSource>();
 	}
 
 	void Update()
 	{	
+		if(Input.GetKeyDown(KeyCode.Space)) audioSource.Play(); 
+	
 		if (Input.GetKey(KeyCode.Space) && fuel > 0)
 		{
 			launchTime += Time.deltaTime; // increment the launch time
@@ -69,6 +73,8 @@ public class RocketLauncher : MonoBehaviour
 	
 			fireParticles.Play();
 			smokeParticles.Play();
+			Status.text = "Décollage en cours... Maintenez la touche espace.";
+			
 		}
 		else if (fuel <= 0)
 		{
@@ -76,10 +82,14 @@ public class RocketLauncher : MonoBehaviour
 			fireParticles.Stop();
 			smokeParticles.Stop();
 		}
+		else if (!Input.GetKey(KeyCode.Space) && launchTime > 0){
+			Status.text = "Votre fusée risque de se crasher, appuyez sur Espace!";
+		}
 		else 
 		{
 			fireParticles.Stop();
 			smokeParticles.Stop();
+			
 		}
 
 		// Change the Scene when the rocket reaches the limit altitude
@@ -97,11 +107,11 @@ public class RocketLauncher : MonoBehaviour
 		float altitudeM = rocket.position.y; // deduce the altitude from the rocket's position
 		
 		// Convert speed and altitude to km/h and km
-		float speedKMH = speedMS * 3.6f * 100f;
-		float altitudeKM = altitudeM / 10f;
+		float speedKMH = speedMS * 3.6f * 985f;
+		float altitudeKM = altitudeM / 7f;
 								
 		// display the real speed and altitude of the rocket on the screen
-		speedText.text = speedKMH.ToString("0.0");
+		speedText.text = speedKMH.ToString("0");
 		altitudeText.text = altitudeKM.ToString("0.0");
 
 		// Compute rocket mass and thrust based on fuel remaining

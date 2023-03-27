@@ -53,7 +53,10 @@ public class AuthentificationManager : MonoBehaviour
 
 		bool isSuccess = await PlayFabAPI.RegisterUser(usernameInput.text, emailInput.text, passwordInput.text, messageText);
 		loader.SetActive(true);
-		if (isSuccess) PlayFabAPI.GetUserData(() => { SceneManager.LoadSceneAsync(HOME_SCENE_NAME); });
+		if (isSuccess) {
+			User.Email = emailInput.text;
+			PlayFabAPI.GetUserData(() => { SceneManager.LoadSceneAsync(HOME_SCENE_NAME); });
+		}
 	} 
 
 	public async void LoginButton()

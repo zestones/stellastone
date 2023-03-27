@@ -1,10 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class CameraController : MonoBehaviour
 {
-	public float sensitivity;
+	private float sensitivity = 75.0f;
+	public float Sensitivity { get { return sensitivity; } set { sensitivity = value; } }
+	
 	public float maxYaw = 90.0f;
 	public float minYaw = -90.0f;
 	public float maxPitch = 60.0f;
@@ -15,12 +20,31 @@ public class CameraController : MonoBehaviour
 	private float pitch = 0.0f;
 	private bool isShiftPressed = false;
 	
+	private const string HOME_NAME_SCENE = "HomeScene"; 
+	
 	private GameObject clickedObject;
-
+	private GameObject parametre;
+	
+	private Button homeButton;
+	private Button resumeButton;
+	private Button quitButton;
+	
 	void Start()
 	{
 		Cursor.visible = false;
-	}
+		parametre = GameObject.Find("Dashboard UI/Canvas/Parametre");
+		
+		// Retrieve the buttons from the UI
+		Button[] buttons = parametre.GetComponentsInChildren<Button>();
+		homeButton = buttons.FirstOrDefault(x => x.name == "HomeScene");
+		resumeButton = buttons.FirstOrDefault(x => x.name == "Reprendre");
+		quitButton = buttons.FirstOrDefault(x => x.name == "Quitter");
+
+		// Add listeners to the buttons
+		homeButton.onClick.AddListener(OnHomeButtonClick);
+		resumeButton.onClick.AddListener(OnResumeButtonClick);
+		quitButton.onClick.AddListener(OnQuitButtonClick);
+	}	
 
 	void Update()
 	{
@@ -55,8 +79,44 @@ public class CameraController : MonoBehaviour
 				}
 			}
 		}
+		
+		// Mettre en pause le jeu lorsque la touche Escape est enfoncée
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
+			Cursor.visible = true;
+			if (Time.timeScale == 1.0f)
+			{
+				Time.timeScale = 0.0f;
+				if (parametre != null) parametre.SetActive(true);
+			}
+			else resumeGame();
+		}
 	}
 	
+	private void resumeGame() 
+	{
+		Time.timeScale = 1.0f;
+		parametre.SetActive(false);
+		Cursor.visible = false;
+	}
+	
+	// Public method to update the mouse sensitivity
+	public void SetSensitivity(float newSensitivity) { sensitivity = newSensitivity; }
+		
+	// Redirect to the home scene
+	void OnHomeButtonClick() { 
+		resumeGame();
+		Cursor.visible = true;
+		SceneManager.LoadSceneAsync(HOME_NAME_SCENE); 
+	}
+	
+	// Resume the game
+	void OnResumeButtonClick() { resumeGame(); }
+
+	// Quit the game
+	void OnQuitButtonClick() { Application.Quit(); }
+	
+	// Show the details modal of the clicked object
 	private void ShowModal()
 	{
 		GameObject modalObject = GameObject.Find("Dashboard UI/Canvas/ObjectModalDetails");
@@ -65,10 +125,7 @@ public class CameraController : MonoBehaviour
 		if (clickedObject != null) modal.ShowModal(clickedObject);
 	}
 
-	void LateUpdate()
-	{
-		transform.LookAt(transform.position + transform.forward, Vector3.up);
-	}
+	void LateUpdate() { transform.LookAt(transform.position + transform.forward, Vector3.up); }
 
 	void FixedUpdate() {
 		if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) {
