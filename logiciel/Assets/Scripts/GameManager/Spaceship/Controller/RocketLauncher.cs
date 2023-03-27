@@ -107,11 +107,11 @@ public class RocketLauncher : MonoBehaviour
 		float altitudeM = rocket.position.y; // deduce the altitude from the rocket's position
 		
 		// Convert speed and altitude to km/h and km
-		float speedKMH = speedMS * 3.6f * 100f;
-		float altitudeKM = altitudeM / 10f;
+		float speedKMH = speedMS * 3.6f * 985f;
+		float altitudeKM = altitudeM / 7f;
 								
 		// display the real speed and altitude of the rocket on the screen
-		speedText.text = speedKMH.ToString("0.0");
+		speedText.text = speedKMH.ToString("0");
 		altitudeText.text = altitudeKM.ToString("0.0");
 
 		// Compute rocket mass and thrust based on fuel remaining

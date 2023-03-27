@@ -19,6 +19,8 @@ public class UserInfosController : MonoBehaviour
 	
 	public void ResetPassword()
 	{
+		Debug.Log("Reset password");
+		Debug.Log(User.Email);
 		PlayFabAPI.ResetPassword(User.Email, messageText);
 	}
 	
@@ -31,6 +33,8 @@ public class UserInfosController : MonoBehaviour
 		
 		if (descriptionInput.text != User.Description)
 		{
+			Debug.Log("Description updated");
+			Debug.Log(descriptionInput.text);
 			PlayFabAPI.UpdateDescription(descriptionInput.text);
 		}
 		

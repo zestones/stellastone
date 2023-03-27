@@ -8,7 +8,7 @@ using System.Linq;
 public class AstronautController : MonoBehaviour
 {
 	private float moveSpeed = 0.1f;
-	private float jumpForce = 2.5f;
+	private float jumpForce =1f;
 	
 	private float sensitivity = 75.0f;
 	public float Sensitivity { get { return sensitivity; } set { sensitivity = value; } }
@@ -20,7 +20,7 @@ public class AstronautController : MonoBehaviour
 	private float xRotation = 0f;
 
 	private const float GRAVITY = -1.62f; // gravité de la lune en m/s^2
-	private const float maxGroundAngle = 45f; // maximum angle of the ground for the astronaut to be considered grounded
+	private const float maxGroundAngle = 150f; // maximum angle of the ground for the astronaut to be considered grounded
 	
 	private bool isShiftPressed = false;
 	
@@ -31,6 +31,8 @@ public class AstronautController : MonoBehaviour
 	private Button homeButton;
 	private Button resumeButton;
 	private Button quitButton;
+
+	private Animator anim;
 		
 	private void Start()
 	{
@@ -39,6 +41,7 @@ public class AstronautController : MonoBehaviour
 		rb.AddForce(Vector3.up * Mathf.Abs(GRAVITY), ForceMode.Acceleration); // ajouter une force vers le haut pour compenser la gravité de la lune
 		
 		Cursor.visible = false;
+		anim = GetComponent<Animator>();
 	}
 
 	private void Update()
@@ -46,7 +49,7 @@ public class AstronautController : MonoBehaviour
 		float horizontalInput = Input.GetAxisRaw("Horizontal");
 		float verticalInput = Input.GetAxisRaw("Vertical");
 
-		Vector3 movement = new Vector3(-horizontalInput, 0f, -verticalInput).normalized * moveSpeed * Time.deltaTime; // inverted horizontalInput and verticalInput
+		Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput).normalized * moveSpeed * Time.deltaTime; // inverted horizontalInput and verticalInput
 		transform.Translate(movement);
 
 		float mouseX = Input.GetAxisRaw("Mouse X") * lookSensitivity;
@@ -54,7 +57,7 @@ public class AstronautController : MonoBehaviour
 
 		xRotation -= mouseY;
 		xRotation = Mathf.Clamp(xRotation, -90f, 90f);
-
+		
 		if (!isShiftPressed) transform.Rotate(Vector3.up * mouseX);
 		else 
 		{
@@ -103,7 +106,9 @@ public class AstronautController : MonoBehaviour
 		}
 	}
 	
-	private void OnCollisionEnter(Collision collision) { SetGroundedTrue(collision); }
+	private void OnCollisionEnter(Collision collision) { 
+		SetGroundedTrue(collision); 
+	}
 			
 	void FixedUpdate() 
 	{
@@ -114,6 +119,9 @@ public class AstronautController : MonoBehaviour
 			isShiftPressed = false;
 			Cursor.visible = false;
 		}
+		
+		if (Input.GetKey(KeyCode.UpArrow)) anim.SetBool("isMoving", true);
+		else anim.SetBool("isMoving", false);
 	}
 	
 	// Show the details modal of the clicked object
