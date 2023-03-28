@@ -1,4 +1,9 @@
-# StellaStone
+![](/resources/logo.png)
+
+[![release packages](https://github.com/icon-project/icon-release/workflows/Release%20packages/badge.svg?event=workflow_dispatch)](https://github.com/zestones/stellastone/releases/tag/v1.0.0)
+
+
+# StellaStone  
 
 StellaStone est une application de simulation de voyage spatial réalisée avec Unity. Cette application vous permet de vivre ou de revivre des moments historiques de l'exploration spatiale, tout en découvrant et élargissant vos connaissances sur le domaine spatial.
 
@@ -6,14 +11,7 @@ StellaStone est une application de simulation de voyage spatial réalisée avec 
 
 - [Installation](#installation)
 - [Fonctionnalités](#fonctionnalités)
-  - [AuthScene](#authscene)
-  - [HomeScene](#homescene)
-  - [ProfilScene](#profilscene)
-  - [AtelierScene](#atelierscene)
-  - [GameScene](#gamescene)
-  - [SpaceScene](#spacescene)
-  - [MoonScene](#moonscene)
-  - [Fonctionnalités implémentées](#fonctionnalités-implémentées)
+  - [Fonctionnalités implémentées](#fonctionnalités-implémentées) 
   - [Fonctionnalités non implémentées](#fonctionnalités-non-implémentées)
 - [Architecture](#architecture)
   - [Architecture du projet](#architecture-du-projet)
@@ -29,7 +27,18 @@ StellaStone est une application de simulation de voyage spatial réalisée avec 
 ## Fonctionnalités
 Le projet StellaStone comporte plusieurs scènes qui permettent de simuler différentes étapes d'un voyage spatial :
 
-### AuthScene
+
+### Fonctionnalités implémentées
+Les fonctionnalités implémentées dans le projet StellaStone sont :
+
+- Authentification
+- Accueil
+- Mise en place de l'atelier pour le choix des missions et des fusées
+- Décollage de la fusée
+- Voyage de la fusée dans l'espace
+- Découverte de la surface lunaire lors de la réalisation de la mission Apollo 11 avec Saturn V.
+
+#### **AuthScene**
 La scène d'authentification permet à l'utilisateur de s'identifier pour accéder aux fonctionnalités du jeu.
 
 ![screenshot de l'interface d'authenfification](./resources/authentification.png)
@@ -37,29 +46,29 @@ La scène d'authentification permet à l'utilisateur de s'identifier pour accéd
 L'utilisateur doit entrer son email et son mot de passe pour accéder au jeu. Il peut également créer un nouveau profil en cliquant sur le bouton "Se connecter". Si l'utilisateur n'a pas de profil, il doit créer un nouveau profil avant de pouvoir accéder au jeu.
 
 
-### HomeScene
+#### **HomeScene**
 La scène d'accueil présente les différentes options de jeu à l'utilisateur. 
 ![screenshot de l'interface d'accueil](./resources/home.png)
 L'interface d'accueil va centraliser toute les informations concernant la missions spatial et la fusée. A partir de cette interface, l'utilisateur à accèes à toutes les fonctionnalités du jeu. 
 
-### ProfilScene
+#### **ProfilScene**
 La scène de paramètres de profil permet à l'utilisateur de modifier les paramètres de son profil, tels que le nom et l'avatar.
 
 ![screenshot de l'interface de paramètres de profil](./resources/profil.png)
 Le profil de l'utilisateur est composé de son nom, de son avatar et de son email. L'utilisateur peut modifier son nom et son avatar en cliquant sur les boutons correspondants.
 
-### AtelierScene
+#### **AtelierScene**
 La scène de sélection des fusées permet à l'utilisateur de choisir la fusée qu'il souhaite utiliser pour son voyage spatial. Il peut également consulter les détails de chaque fusée pour faire un choix éclairé.
 
 ![screenshot de l'interface de sélection des fusées](./resources/atelier.png)
 Cette scene va permettre à l'utilisateur de choisir la mission qu'il souhaite réaliser et la fusée qu'il souhaite utiliser pour sa mission.
 
-### GameScene
+#### **GameScene**
 La scène de décollage du jeu permet à l'utilisateur de lancer sa fusée et de commencer son voyage spatial. Il doit suivre les instructions pour assurer le succès de sa mission.
 
 ![screenshot de l'interface de décollage](./resources/decollage.png)
 
-### SpaceScene
+#### **SpaceScene**
 La scène de voyage dans l'espace permet à l'utilisateur de naviguer dans l'espace. Il peut également consulter les informations sur les différents objets spatiaux qu'il rencontre.
 
 Pour cela un premier pop up informatif vous aidera a connaitre les actions réalisables dans cette scène.
@@ -74,7 +83,7 @@ En apuyant sur le bouton présent en bas à gauche de l'écran vous pourrez chan
 
 ![screenshot de l'interface de voyage dans l'espace](./resources/vue_interrieur.png)
 
-### MoonScene
+#### **MoonScene**
 La scène de découverte de la surface lunaire simule la mission Apollo 11 de la NASA. L'utilisateur doit naviguer sur la surface de la lune et accomplir les tâches nécessaires pour réussir la mission.
 
 ![screenshot de l'interface de découverte de la surface lunaire](./resources/lune.png)
@@ -89,17 +98,6 @@ vous pourrez égalelement accéder à un écran de pause en appuyant sur la touc
 
 ![screenshot de l'interface de voyage dans l'espace](./resources/pause.png)
 Cette ecran de pause est bien entendu disponible dans toutes les scènes du jeu.
-
-
-### Fonctionnalités implémentées
-Les fonctionnalités implémentées dans le projet StellaStone sont :
-
-- Authentification
-- Accueil
-- Mise en place de l'atelier pour le choix des missions et des fusées
-- Décollage de la fusée
-- Voyage de la fusée dans l'espace
-- Découverte de la surface lunaire lors de la réalisation de la mission Apollo 11 avec Saturn V.
 
 ### Fonctionnalités non implémentées
 - Mise en place d'un système d'entreprise pour réaliser des missions en collaboration.
