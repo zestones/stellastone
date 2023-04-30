@@ -60,7 +60,7 @@ Le profil de l'utilisateur est composé de son nom, de son avatar et de son emai
 #### **AtelierScene**
 La scène de sélection des fusées permet à l'utilisateur de choisir la fusée qu'il souhaite utiliser pour son voyage spatial. Il peut également consulter les détails de chaque fusée pour faire un choix éclairé.
 
-![screenshot de l'interface de sélection des fusées](./resources/atelier.png)
+![screenshot de l'interface de sélection des fusées](./resources/Atelier.png)
 Cette scene va permettre à l'utilisateur de choisir la mission qu'il souhaite réaliser et la fusée qu'il souhaite utiliser pour sa mission.
 
 #### **GameScene**
